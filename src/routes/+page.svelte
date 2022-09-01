@@ -6,8 +6,23 @@
 		{
 			name: 'animals with hoodies',
 			description: 'animals with hoodies',
+			slug: 'animals-with-hoodies',
 			imageUrl:
-				'https://cdn.discordapp.com/attachments/991782974326575194/1014994910350409820/yekta_portrait_of_a_dog_character_with_dark_saturated_blue_fur__8950eee8-62bb-4cb7-8a27-14752e05ec75.png'
+				'https://cdn.discordapp.com/attachments/430655972956962817/1015016046199054376/Frame_20.jpg'
+		},
+		{
+			name: 'animals with hoodies',
+			description: 'animals with hoodies',
+			slug: 'animals-with-hoodies',
+			imageUrl:
+				'https://cdn.discordapp.com/attachments/430655972956962817/1015016046199054376/Frame_20.jpg'
+		},
+		{
+			name: 'animals with hoodies',
+			description: 'animals with hoodies',
+			slug: 'animals-with-hoodies',
+			imageUrl:
+				'https://cdn.discordapp.com/attachments/430655972956962817/1015016046199054376/Frame_20.jpg'
 		}
 	];
 </script>

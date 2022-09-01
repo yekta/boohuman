@@ -1,4 +1,5 @@
 <script lang="ts">
+	import CollectionCard from '$components/CollectionCard.svelte';
 	import type { TCollectionShallow } from '$ts/types/main';
 
 	export let collections: TCollectionShallow[];
@@ -7,27 +8,13 @@
 	let classes = '';
 </script>
 
-<div class="w-full flex flex-col items-center py-20 {classes}">
+<div class="w-full flex flex-col items-center py-16 {classes}">
 	<h2 class="text-3xl font-bold">collections</h2>
-	<div class="w-full flex flex-row justify-center items-start mt-5">
+	<div
+		class="w-full flex flex-row flex-wrap justify-center items-start mt-7 px-2.5 md:px-8 lg:px-12"
+	>
 		{#each collections as collection}
-			<div class="w-full md:w-1/2">
-				<div
-					style="background: rgba(var(--c-bg)); 
-            background: linear-gradient(135deg, 
-            rgba(var(--c-color-1)) 0%, 
-            rgba(var(--c-color-2)) 25%, 
-            rgba(var(--c-color-3)) 50%, 
-            rgba(var(--c-color-4)) 75%,
-            rgba(var(--c-color-5)) 100%"
-					class="w-full p-2px"
-				>
-					<div class="w-full bg-c-bg">
-						<p class="w-full text-center px-5 py-4 text-lg font-bold">{collection.name}</p>
-						<img class="w-full h-auto" src={collection.imageUrl} alt={collection.name} />
-					</div>
-				</div>
-			</div>
+			<CollectionCard {collection} class="md:w-1/2 lg:w-1/3 p-2.5" />
 		{/each}
 	</div>
 </div>
