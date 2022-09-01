@@ -11,6 +11,23 @@ function withOpacityValue(variable) {
 module.exports = {
 	content: ['./src/**/*.{html,js,svelte,ts}'],
 	theme: {
+		transitionDuration: {
+			DEFAULT: '200ms',
+			150: '150ms',
+			200: '200ms',
+			250: '250ms',
+			300: '300ms',
+			350: '350ms',
+			400: '400ms',
+			500: '500ms',
+			600: '600ms',
+			700: '700ms',
+			800: '800ms',
+			1000: '1000ms'
+		},
+		transitionTimingFunction: {
+			DEFAULT: 'cubic-bezier(0, 0.5, 0.5, 1)'
+		},
 		extend: {
 			colors: {
 				'c-primary': withOpacityValue('--c-primary'),
