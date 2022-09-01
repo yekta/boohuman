@@ -1,0 +1,61 @@
+@tailwind base;
+@tailwind components;
+
+:root {
+	--c-primary: 180 145 255;
+	--c-primary-shaded: 170 225 135;
+	--c-on-primary: 20 20 30;
+	--c-secondary: 76 185 75;
+	--c-bg: 0 0 0;
+	--c-color-1: 255 112 112;
+	--c-color-2: 255 255 115;
+	--c-color-3: 110 240 108;
+	--c-color-4: 68 240 230;
+	--c-color-5: 235 150 255;
+	--c-bg-secondary: 25 25 40;
+	--c-bg-tertiary: 54 54 59;
+	--c-on-bg: 230 231 242;
+	--c-danger: 230 100 100;
+	--c-success: 85 185 95;
+	--c-ban: 251 221 17;
+	--c-shadow: 0 0 0;
+	--c-barrier: 20 20 23;
+}
+
+body {
+	color: rgb(var(--c-on-bg));
+	background: rgb(var(--c-bg));
+}
+
+input,
+textarea {
+	-webkit-appearance: none;
+}
+
+input:focus,
+textarea:focus {
+	outline: none;
+}
+
+textarea {
+	resize: none;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+	-webkit-appearance: none;
+	margin: 0;
+}
+
+/* Firefox */
+input[type='number'] {
+	-moz-appearance: textfield;
+}
+
+a:focus-visible,
+button:focus-visible {
+	outline: none;
+	box-shadow: 0 0 0 4px rgb(var(--c-bg)), 0 0 0 6px rgb(var(--c-primary));
+}
+
+@tailwind utilities;
