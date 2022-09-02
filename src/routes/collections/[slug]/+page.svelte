@@ -1,13 +1,21 @@
 <script lang="ts">
-	import type { TCollection } from '$ts/types/main';
+	import { clickoutside } from '$ts/actions/clickoutside';
+	import { receive, send } from '$ts/animation/transitions';
+	import { activeEntry } from '$ts/stores/activeEntry';
+	import type { TCollection, TCollectionEntry } from '$ts/types/main';
+	import { quadOut } from 'svelte/easing';
+	import { fade } from 'svelte/transition';
 
 	const collection: TCollection = {
+		owner: {
+			name: 'yekta'
+		},
 		aiName: 'Midjourney',
 		gpuTimeHours: 8,
 		totalGenerations: 900,
-		name: 'Animals with Hoodies',
-		description: 'Animals with hoodies.',
-		slug: 'animals-with-hoodies',
+		name: 'animals in hoodies',
+		description: 'animals in hoodies.',
+		slug: 'animals-in-hoodies',
 		imageUrl:
 			'https://cdn.discordapp.com/attachments/430655972956962817/1015016046199054376/Frame_20.jpg',
 		entries: [
@@ -18,55 +26,61 @@
 					'https://cdn.discordapp.com/attachments/430655972956962817/1015032598789095464/yekta_portrait_of_an_orange_furred_owl_wearing_orange_hoodie_wi_7592d20e-9dd6-481c-ac85-9fb864046c31.jpg'
 			},
 			{
-				name: 'cat',
+				name: 'cat asdf',
 				description: 'cat',
 				imageUrl:
 					'https://cdn.discordapp.com/attachments/430655972956962817/1015032598789095464/yekta_portrait_of_an_orange_furred_owl_wearing_orange_hoodie_wi_7592d20e-9dd6-481c-ac85-9fb864046c31.jpg'
 			},
 			{
-				name: 'cat',
+				name: 'cat asdfsdf',
 				description: 'cat',
 				imageUrl:
 					'https://cdn.discordapp.com/attachments/430655972956962817/1015032598789095464/yekta_portrait_of_an_orange_furred_owl_wearing_orange_hoodie_wi_7592d20e-9dd6-481c-ac85-9fb864046c31.jpg'
 			},
 			{
-				name: 'cat',
+				name: 'cat1234',
 				description: 'cat',
 				imageUrl:
 					'https://cdn.discordapp.com/attachments/430655972956962817/1015032598789095464/yekta_portrait_of_an_orange_furred_owl_wearing_orange_hoodie_wi_7592d20e-9dd6-481c-ac85-9fb864046c31.jpg'
 			},
 			{
-				name: 'cat',
+				name: 'caasdft',
 				description: 'cat',
 				imageUrl:
 					'https://cdn.discordapp.com/attachments/430655972956962817/1015032598789095464/yekta_portrait_of_an_orange_furred_owl_wearing_orange_hoodie_wi_7592d20e-9dd6-481c-ac85-9fb864046c31.jpg'
 			},
 			{
-				name: 'cat',
+				name: 'cat123424',
 				description: 'cat',
 				imageUrl:
 					'https://cdn.discordapp.com/attachments/430655972956962817/1015032598789095464/yekta_portrait_of_an_orange_furred_owl_wearing_orange_hoodie_wi_7592d20e-9dd6-481c-ac85-9fb864046c31.jpg'
 			},
 			{
-				name: 'cat',
-				description: 'cat',
-				imageUrl:
-					'https://cdn.discordapp.com/attachments/430655972956962817/1015032598789095464/yekta_portrait_of_an_orange_furred_owl_wearing_orange_hoodie_wi_7592d20e-9dd6-481c-ac85-9fb864046c31.jpg'
-			},
-			{
-				name: 'cat',
-				description: 'cat',
-				imageUrl:
-					'https://cdn.discordapp.com/attachments/430655972956962817/1015032598789095464/yekta_portrait_of_an_orange_furred_owl_wearing_orange_hoodie_wi_7592d20e-9dd6-481c-ac85-9fb864046c31.jpg'
-			},
-			{
-				name: 'cat',
+				name: 'ca12341234t',
 				description: 'cat',
 				imageUrl:
 					'https://cdn.discordapp.com/attachments/430655972956962817/1015032598789095464/yekta_portrait_of_an_orange_furred_owl_wearing_orange_hoodie_wi_7592d20e-9dd6-481c-ac85-9fb864046c31.jpg'
 			}
 		]
 	};
+
+	function setActiveEntry(entry: TCollectionEntry) {
+		activeEntry.set(entry);
+	}
+
+	function closeModal() {
+		activeEntry.set(undefined);
+	}
+
+	let oldActiveEntry: TCollectionEntry | undefined;
+
+	$: $activeEntry, setOldActiveEntry();
+
+	function setOldActiveEntry() {
+		if ($activeEntry !== undefined) {
+			oldActiveEntry = $activeEntry;
+		}
+	}
 </script>
 
 <div class="w-full flex flex-col">
@@ -86,14 +100,47 @@
 					>{collection.totalGenerations.toString().toLowerCase()}</span
 				>
 			</p>
+			<p>
+				prompts by: <span class="font-bold text-c-on-bg">{collection.owner.name.toLowerCase()}</span
+				>
+			</p>
 		</div>
 	</div>
 	<!-- Entries -->
 	<div class="w-full flex flex-wrap justify-center">
-		{#each collection.entries as entry}
-			<div class="w-full md:w-1/2 lg:w-1/3 xl:w-1/4">
-				<img src={entry.imageUrl} alt={entry.name} />
+		{#each collection.entries as entry (entry.name)}
+			<div class="w-full md:w-1/2 lg:w-1/3 xl:w-1/4 bg-c-bg relative flex flex-col">
+				<div class="w-full" />
+				{#if $activeEntry?.name !== entry.name}
+					<button on:click={() => setActiveEntry(entry)} class="w-full">
+						<img
+							in:receive|local={{ key: entry.name }}
+							out:send|local={{ key: entry.name }}
+							src={entry.imageUrl}
+							alt={entry.name}
+						/>
+					</button>
+				{/if}
 			</div>
 		{/each}
 	</div>
 </div>
+
+{#if $activeEntry !== undefined}
+	<div
+		transition:fade|local={{ duration: 300, easing: quadOut }}
+		class="fixed flex flex-col items-center justify-center left-0 top-0 w-screen h-screen z-40 bg-c-bg/90"
+	/>
+	<div
+		class="fixed flex flex-col items-center justify-center left-0 top-0 w-screen h-screen z-50 p-5"
+	>
+		<img
+			in:receive|local={{ key: oldActiveEntry?.name }}
+			out:send|local={{ key: oldActiveEntry?.name }}
+			use:clickoutside={closeModal}
+			class="max-h-full max-w-full"
+			src={oldActiveEntry?.imageUrl}
+			alt={oldActiveEntry?.name}
+		/>
+	</div>
+{/if}

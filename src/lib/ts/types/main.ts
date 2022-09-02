@@ -11,6 +11,7 @@ export interface TCollectionShallow {
 }
 
 export interface TCollection extends TCollectionShallow {
+	owner: TUser;
 	aiName: string;
 	gpuTimeHours: number;
 	totalGenerations: number;
@@ -21,4 +22,8 @@ export interface TCollectionEntry {
 	name: string;
 	description: string;
 	imageUrl: string;
+}
+
+export interface TUser {
+	name: string;
 }
