@@ -19,7 +19,8 @@ export const load: ServerLoad = async ({ params }) => {
 						name,
 						imageUrl:image_url,
 						imageWidth:image_width,
-						imageHeight:image_height
+						imageHeight:image_height,
+						order
 					),
 					aiOption:ai_option (
 						name,

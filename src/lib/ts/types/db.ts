@@ -17,6 +17,7 @@ export interface TDBCollectionEntry {
 	imageUrl: string;
 	imageWidth: number;
 	imageHeight: number;
+	order: number;
 }
 
 export interface TDBAiOption {

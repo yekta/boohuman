@@ -39,6 +39,7 @@ CREATE TABLE "art_collection_entry" (
     "imageUrl" TEXT NOT NULL,
     "imageWidth" INTEGER NOT NULL,
     "imageHeight" INTEGER NOT NULL,
+    "order" INTEGER NOT NULL,
     "art_collection_id" UUID REFERENCES art_collection(id) NOT NULL,
     "id" UUID NOT NULL DEFAULT uuid_generate_v4(),
     "created_at" TIMESTAMPTZ DEFAULT TIMEZONE('utc' :: TEXT, NOW()) NOT NULL,
