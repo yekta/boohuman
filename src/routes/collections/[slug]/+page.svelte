@@ -3,7 +3,6 @@
 	import ButtonBack from '$components/buttons/ButtonBack.svelte';
 
 	import EntryCard from '$components/CollectionEntryCard.svelte';
-	import IconArrowDown from '$components/icons/IconArrowDown.svelte';
 	import { clickoutside } from '$ts/actions/clickoutside';
 	import { receive, send } from '$ts/animation/transitions';
 	import { collection } from '$ts/constants/collections';

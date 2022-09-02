@@ -2,6 +2,7 @@
 	import BgHoverEffect from '$components/BgHoverEffect.svelte';
 	import Divider from '$components/Divider.svelte';
 	import LogoHorizontal from '$components/LogoHorizontal.svelte';
+	import ProgressBar from '$components/navbar/ProgressBar.svelte';
 	import type { TNavbarOption } from '$ts/types/main';
 
 	const navbarOptions: TNavbarOption[] = [
@@ -35,5 +36,5 @@
 			{/each}
 		</div>
 	</div>
-	<Divider />
+	<ProgressBar />
 </div>

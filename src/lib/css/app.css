@@ -99,5 +99,4 @@ button:focus-visible {
 		rgba(var(--c-color-5)) 100%
 	);
 }
-
 @tailwind utilities;
