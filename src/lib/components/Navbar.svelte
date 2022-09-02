@@ -9,7 +9,7 @@
 	];
 </script>
 
-<div class="w-full flex flex-col items-center sticky top-0 bg-c-bg">
+<div class="w-full flex flex-col items-center sticky top-0 bg-c-bg z-30">
 	<div class="w-full max-w-7xl flex items-center justify-between px-2">
 		<a data-sveltekit-prefetch href="/" class="p-3 self-stretch flex items-center justify-center">
 			<LogoHorizontal />

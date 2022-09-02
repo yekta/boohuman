@@ -81,6 +81,12 @@
 			oldActiveEntry = $activeEntry;
 		}
 	}
+
+	let imageHeights: number[] = Array.from({ length: collection.entries.length }, () => 0);
+	let imageWidths: number[] = Array.from({ length: collection.entries.length }, () => 0);
+
+	$: maxImageHeight = imageHeights.reduce((a, b) => Math.max(a, b), 0);
+	$: maxImageWidth = imageWidths.reduce((a, b) => Math.max(a, b), 0);
 </script>
 
 <div class="w-full flex flex-col">
@@ -107,10 +113,14 @@
 		</div>
 	</div>
 	<!-- Entries -->
-	<div class="w-full flex flex-wrap justify-center">
-		{#each collection.entries as entry (entry.name)}
-			<div class="w-full md:w-1/2 lg:w-1/3 xl:w-1/4 bg-c-bg relative flex flex-col">
-				<div class="w-full" />
+	<div class="w-full flex flex-wrap justify-center z-0 relative">
+		{#each collection.entries as entry, index (entry.name)}
+			<div
+				bind:clientHeight={imageHeights[index]}
+				bind:clientWidth={imageWidths[index]}
+				style="min-width: {maxImageWidth}px; min-height: {maxImageHeight}px;"
+				class="w-full md:w-1/2 lg:w-1/3 xl:w-1/4 bg-c-bg relative flex flex-col"
+			>
 				{#if $activeEntry?.name !== entry.name}
 					<button on:click={() => setActiveEntry(entry)} class="w-full">
 						<img
@@ -118,6 +128,7 @@
 							out:send|local={{ key: entry.name }}
 							src={entry.imageUrl}
 							alt={entry.name}
+							class="select-none"
 						/>
 					</button>
 				{/if}
@@ -138,7 +149,7 @@
 			in:receive|local={{ key: oldActiveEntry?.name }}
 			out:send|local={{ key: oldActiveEntry?.name }}
 			use:clickoutside={closeModal}
-			class="max-h-full max-w-full"
+			class="max-h-full max-w-full select-none"
 			src={oldActiveEntry?.imageUrl}
 			alt={oldActiveEntry?.name}
 		/>

@@ -16,7 +16,7 @@
 		<a data-sveltekit-prefetch href="/collections/{collection.slug}" class="w-full relative">
 			<div class="w-full p-2px relative">
 				<div class="w-full bg-c-bg">
-					<p class="w-full text-center px-5 py-5 text-lg font-bold">{collection.name}</p>
+					<p class="w-full text-center px-5 py-5 text-xl font-bold">{collection.name}</p>
 					<img class="w-full h-auto" src={collection.imageUrl} alt={collection.name} />
 				</div>
 			</div>
