@@ -1,6 +1,5 @@
 <script lang="ts">
 	import { activeEntry } from '$ts/stores/activeEntry';
-	import type { TCollectionEntry } from '$ts/types/main';
 	import { receive, send } from '$ts/animation/transitions';
 	import type { TDBCollectionEntry } from '$ts/types/db';
 
