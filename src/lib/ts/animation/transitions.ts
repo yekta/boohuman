@@ -2,7 +2,7 @@ import { crossfade } from 'svelte/transition';
 import { quadOut } from 'svelte/easing';
 
 const [send, receive] = crossfade({
-	duration: (d) => Math.sqrt(d * 200),
+	duration: (d) => Math.max(Math.sqrt(d * 200), 300),
 	fallback(node, params) {
 		const style = getComputedStyle(node);
 		const transform = style.transform === 'none' ? '' : style.transform;

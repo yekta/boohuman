@@ -1,4 +1,5 @@
 <script lang="ts">
+	import EntryCard from '$components/EntryCard.svelte';
 	import { clickoutside } from '$ts/actions/clickoutside';
 	import { receive, send } from '$ts/animation/transitions';
 	import { activeEntry } from '$ts/stores/activeEntry';
@@ -64,10 +65,6 @@
 		]
 	};
 
-	function setActiveEntry(entry: TCollectionEntry) {
-		activeEntry.set(entry);
-	}
-
 	function closeModal() {
 		activeEntry.set(undefined);
 	}
@@ -85,14 +82,13 @@
 	let imageHeights: number[] = Array.from({ length: collection.entries.length }, () => 0);
 	let imageWidths: number[] = Array.from({ length: collection.entries.length }, () => 0);
 
-	$: maxImageHeight = imageHeights.reduce((a, b) => Math.max(a, b), 0);
-	$: maxImageWidth = imageWidths.reduce((a, b) => Math.max(a, b), 0);
+	$: aspectRatio = (imageWidths.find((i) => i > 0) || 0) / (imageHeights.find((i) => i > 0) || 1);
 </script>
 
 <div class="w-full flex flex-col">
 	<!-- Title section -->
 	<div class="w-full flex items-center justify-center px-5 py-12">
-		<h1 class="text-3xl font-bold text-right">{collection.name.toLowerCase()}</h1>
+		<h1 class="text-3xl font-bold text-right max-w-md">{collection.name.toLowerCase()}</h1>
 		<div class="w-2px self-stretch p-gradient-180 mx-8" />
 		<div class="flex flex-col py-2 text-c-on-bg/60 gap-1.5 text-lg">
 			<p>ai: <span class="font-bold text-c-on-bg">{collection.aiName.toLowerCase()}</span></p>
@@ -118,19 +114,11 @@
 			<div
 				bind:clientHeight={imageHeights[index]}
 				bind:clientWidth={imageWidths[index]}
-				style="min-width: {maxImageWidth}px; min-height: {maxImageHeight}px;"
+				style="aspect-ratio: {aspectRatio};"
 				class="w-full md:w-1/2 lg:w-1/3 xl:w-1/4 bg-c-bg relative flex flex-col"
 			>
 				{#if $activeEntry?.name !== entry.name}
-					<button on:click={() => setActiveEntry(entry)} class="w-full">
-						<img
-							in:receive|local={{ key: entry.name }}
-							out:send|local={{ key: entry.name }}
-							src={entry.imageUrl}
-							alt={entry.name}
-							class="select-none"
-						/>
-					</button>
+					<EntryCard {entry} />
 				{/if}
 			</div>
 		{/each}
