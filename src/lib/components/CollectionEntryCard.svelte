@@ -12,10 +12,12 @@
 
 <button on:click={() => setActiveEntry(entry)} class="w-full overflow-hidden group">
 	<img
-		in:receive|local={{ key: entry.name }}
-		out:send|local={{ key: entry.name }}
+		in:receive|local={{ key: entry.id }}
+		out:send|local={{ key: entry.id }}
 		src={entry.imageUrl}
 		alt={entry.name}
+		width={entry.imageWidth}
+		height={entry.imageHeight}
 		class="select-none transition duration-300 origin-bottom group-hover:scale-102"
 	/>
 </button>

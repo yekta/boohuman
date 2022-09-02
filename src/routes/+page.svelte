@@ -1,16 +1,6 @@
 <script lang="ts">
 	import CollectionsSection from '$components/CollectionsSection.svelte';
-	import type { TCollectionShallow } from '$ts/types/main';
-
-	const collections: TCollectionShallow[] = [
-		{
-			name: 'animals in hoodies',
-			description: 'animals in hoodies',
-			slug: 'animals-in-hoodies',
-			imageUrl:
-				'https://cdn.discordapp.com/attachments/430655972956962817/1015016046199054376/Frame_20.jpg'
-		}
-	];
+	import { collections } from '$ts/constants/collections';
 </script>
 
 <div class="flex-1 flex flex-col items-center justify-center relative">

@@ -30,7 +30,13 @@
 							{collection.name}
 						</p>
 					</div>
-					<img class="w-full h-auto relative" src={collection.imageUrl} alt={collection.name} />
+					<img
+						class="w-full h-auto relative"
+						width={collection.imageWidth}
+						height={collection.imageHeight}
+						src={collection.imageUrl}
+						alt={collection.name}
+					/>
 				</div>
 			</div>
 		</a>

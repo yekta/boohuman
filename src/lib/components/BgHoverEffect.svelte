@@ -11,6 +11,6 @@
 	  group-hover:translate-y-0"
 >
 	<div
-		class="w-full h-full p-gradient-135 transition duration-600 delay-150 transform group-hover:-translate-x-1/2"
+		class="w-full h-full p-gradient-135 transition duration-600 ease-in-steep transform group-hover:-translate-x-1/2"
 	/>
 </div>

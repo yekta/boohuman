@@ -26,7 +26,8 @@ module.exports = {
 			1000: '1000ms'
 		},
 		transitionTimingFunction: {
-			DEFAULT: 'cubic-bezier(0, 0.5, 0.5, 1)'
+			DEFAULT: 'cubic-bezier(0, 0.5, 0.5, 1)',
+			'in-steep': 'cubic-bezier(.6,0,.55,.55)'
 		},
 		extend: {
 			colors: {
@@ -50,7 +51,10 @@ module.exports = {
 				'c-barrier': withOpacityValue('--c-barrier')
 			},
 			spacing: {
-				'2px': '2px'
+				'2px': '2px',
+				'0.5ch': '0.5ch',
+				'1ch': '1ch',
+				'2ch': '2ch'
 			},
 			fontSize: {
 				'9xl': '7rem',
