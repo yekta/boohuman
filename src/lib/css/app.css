@@ -2,7 +2,7 @@
 @tailwind components;
 
 :root {
-	--c-primary: 180 145 255;
+	--c-primary: 68 240 230;
 	--c-primary-shaded: 170 225 135;
 	--c-on-primary: 20 20 30;
 	--c-secondary: 76 185 75;

@@ -3,7 +3,7 @@
 	let classes = 'w-40 h-auto';
 </script>
 
-<svg class={classes} viewBox="0 0 120 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+<svg class="relative {classes}" viewBox="0 0 120 24" fill="none" xmlns="http://www.w3.org/2000/svg">
 	<path
 		fill-rule="evenodd"
 		clip-rule="evenodd"
