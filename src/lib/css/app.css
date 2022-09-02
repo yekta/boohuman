@@ -23,6 +23,7 @@
 }
 
 body {
+	font-family: 'space-grotesk', sans-serif;
 	color: rgb(var(--c-on-bg));
 	background: rgb(var(--c-bg));
 }

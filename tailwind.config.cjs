@@ -51,6 +51,10 @@ module.exports = {
 			},
 			spacing: {
 				'2px': '2px'
+			},
+			fontSize: {
+				'9xl': '7rem',
+				'10xl': '8rem'
 			}
 		}
 	},
