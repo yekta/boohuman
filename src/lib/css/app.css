@@ -58,4 +58,35 @@ button:focus-visible {
 	box-shadow: 0 0 0 4px rgb(var(--c-bg)), 0 0 0 6px rgb(var(--c-primary));
 }
 
+.p-gradient-90 {
+	background: linear-gradient(
+		90deg,
+		rgba(var(--c-color-1)) 0%,
+		rgba(var(--c-color-2)) 25%,
+		rgba(var(--c-color-3)) 50%,
+		rgba(var(--c-color-4)) 75%,
+		rgba(var(--c-color-5)) 100%
+	);
+}
+.p-gradient-135 {
+	background: linear-gradient(
+		135deg,
+		rgba(var(--c-color-1)) 0%,
+		rgba(var(--c-color-2)) 25%,
+		rgba(var(--c-color-3)) 50%,
+		rgba(var(--c-color-4)) 75%,
+		rgba(var(--c-color-5)) 100%
+	);
+}
+.p-gradient-180 {
+	background: linear-gradient(
+		180deg,
+		rgba(var(--c-color-1)) 0%,
+		rgba(var(--c-color-2)) 25%,
+		rgba(var(--c-color-3)) 50%,
+		rgba(var(--c-color-4)) 75%,
+		rgba(var(--c-color-5)) 100%
+	);
+}
+
 @tailwind utilities;
