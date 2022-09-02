@@ -6,7 +6,7 @@
 	import { tweened, type Tweened } from 'svelte/motion';
 
 	export let animationTime = 500;
-	export let delay = 250;
+	export let delay = 200;
 
 	type TProgressType = 'navigating' | 'idle';
 

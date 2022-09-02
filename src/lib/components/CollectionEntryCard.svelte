@@ -2,10 +2,11 @@
 	import { activeEntry } from '$ts/stores/activeEntry';
 	import type { TCollectionEntry } from '$ts/types/main';
 	import { receive, send } from '$ts/animation/transitions';
+	import type { TDBCollectionEntry } from '$ts/types/db';
 
-	export let entry: TCollectionEntry;
+	export let entry: TDBCollectionEntry;
 
-	function setActiveEntry(entry: TCollectionEntry) {
+	function setActiveEntry(entry: TDBCollectionEntry) {
 		activeEntry.set(entry);
 	}
 </script>

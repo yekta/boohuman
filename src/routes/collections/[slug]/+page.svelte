@@ -5,17 +5,19 @@
 	import EntryCard from '$components/CollectionEntryCard.svelte';
 	import { clickoutside } from '$ts/actions/clickoutside';
 	import { receive, send } from '$ts/animation/transitions';
-	import { collection } from '$ts/constants/collections';
 	import { activeEntry } from '$ts/stores/activeEntry';
-	import type { TCollectionEntry } from '$ts/types/main';
+	import type { TDBCollection, TDBCollectionEntry } from '$ts/types/db';
 	import { quadOut } from 'svelte/easing';
 	import { fade } from 'svelte/transition';
+
+	export let data: { collection: TDBCollection };
+	const { collection } = data;
 
 	function closeModal() {
 		activeEntry.set(undefined);
 	}
 
-	let oldActiveEntry: TCollectionEntry | undefined;
+	let oldActiveEntry: TDBCollectionEntry | undefined;
 
 	$: $activeEntry, setOldActiveEntry();
 
@@ -37,23 +39,23 @@
 			<div class="flex items-center">
 				<p class="mr-0.5ch text-c-on-bg/60">ai:</p>
 				<a
-					href={collection.aiUrl}
+					href={collection.aiOption.url}
 					class="font-bold group relative overflow-hidden transition text-c-on-bg hover:text-c-bg px-1"
 					target="_blank"
 				>
 					<BgHoverEffect />
-					<p class="relative">{collection.aiName.toLowerCase()}</p>
+					<p class="relative">{collection.aiOption.name.toLowerCase()}</p>
 				</a>
 			</div>
 			<div class="flex items-center">
 				<p class="text-c-on-bg/60 mr-0.5ch">prompts by:</p>
 				<a
-					href={collection.owner.url}
+					href={collection.owner?.url}
 					class="font-bold group relative overflow-hidden transition text-c-on-bg hover:text-c-bg px-1"
 					target="_blank"
 				>
 					<BgHoverEffect />
-					<p class="relative">{collection.owner.name.toLowerCase()}</p>
+					<p class="relative">{collection.owner?.name?.toLowerCase()}</p>
 				</a>
 			</div>
 			<div class="flex items-center">
@@ -95,13 +97,21 @@
 	<div
 		class="fixed flex flex-col items-center justify-center left-0 top-0 w-screen h-screen z-50 p-5"
 	>
-		<img
-			in:receive|local={{ key: oldActiveEntry?.id }}
-			out:send|local={{ key: oldActiveEntry?.id }}
-			use:clickoutside={closeModal}
-			class="max-h-full max-w-full select-none"
-			src={oldActiveEntry?.imageUrl}
-			alt={oldActiveEntry?.name}
-		/>
+		<div
+			style="aspect-ratio: {(oldActiveEntry?.imageWidth || 0) /
+				(oldActiveEntry?.imageHeight || 1)};"
+			class="max-w-full max-h-full object-contain"
+		>
+			<img
+				in:receive|local={{ key: oldActiveEntry?.id }}
+				out:send|local={{ key: oldActiveEntry?.id }}
+				use:clickoutside={closeModal}
+				class="w-full h-full select-none"
+				src={oldActiveEntry?.imageUrl}
+				width={oldActiveEntry?.imageWidth}
+				height={oldActiveEntry?.imageHeight}
+				alt={oldActiveEntry?.name}
+			/>
+		</div>
 	</div>
 {/if}
