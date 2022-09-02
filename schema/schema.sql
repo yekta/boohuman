@@ -13,7 +13,7 @@ CREATE TABLE "art_collection" (
     "updated_at" TIMESTAMPTZ DEFAULT TIMEZONE('utc' :: TEXT, NOW()) NOT NULL,
 );
 
-CREATE TABLE "user" (
+CREATE TABLE "public_user" (
     "id" UUID REFERENCES auth.users(id) NOT NULL PRIMARY KEY,
     "name" TEXT NOT NULL DEFAULT 'New User',
 );
@@ -45,3 +45,19 @@ CREATE TABLE "ai_option" (
 CREATE trigger handle_updated_at before
 UPDATE
     ON ai_option FOR each ROW EXECUTE PROCEDURE moddatetime (updated_at);
+
+CREATE policy "Everyone can view art collections" ON art_collection FOR
+SELECT
+    USING (TRUE);
+
+CREATE policy "Everyone can view art collections entries" ON art_collection FOR
+SELECT
+    USING (TRUE);
+
+CREATE policy "Everyone can view AI options" ON art_collection FOR
+SELECT
+    USING (TRUE);
+
+CREATE policy "Everyone can view all users public info" ON public_user FOR
+SELECT
+    USING (TRUE);
