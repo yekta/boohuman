@@ -1,5 +1,8 @@
 <script lang="ts">
+	import BgHoverEffect from '$components/BgHoverEffect.svelte';
+
 	import EntryCard from '$components/EntryCard.svelte';
+	import IconArrowDown from '$components/icons/IconArrowDown.svelte';
 	import { clickoutside } from '$ts/actions/clickoutside';
 	import { receive, send } from '$ts/animation/transitions';
 	import { activeEntry } from '$ts/stores/activeEntry';
@@ -122,6 +125,19 @@
 				{/if}
 			</div>
 		{/each}
+	</div>
+	<!-- Back button -->
+	<div class="w-full flex justify-center mt-12">
+		<a
+			data-sveltekit-prefetch
+			href="/"
+			class="pl-5 pr-6 py-3 flex items-center justify-center text-center text-c-on-bg 
+				font-bold group relative overflow-hidden transition hover:text-c-bg"
+		>
+			<BgHoverEffect />
+			<IconArrowDown class="w-5 h-5 transform rotate-90 mr-3" />
+			<p class="text-lg relative">go back</p>
+		</a>
 	</div>
 </div>
 
