@@ -93,7 +93,7 @@
 	<div class="w-full flex items-center justify-center px-5 py-12">
 		<h1 class="text-3xl font-bold text-right max-w-md">{collection.name.toLowerCase()}</h1>
 		<div class="w-2px self-stretch p-gradient-180 mx-8" />
-		<div class="flex flex-col py-2 text-c-on-bg/60 gap-1.5 text-lg">
+		<div class="font-light flex flex-col py-2 text-c-on-bg/60 gap-1.5 text-lg">
 			<p>ai: <span class="font-bold text-c-on-bg">{collection.aiName.toLowerCase()}</span></p>
 			<p>
 				gpu time: <span class="font-bold text-c-on-bg"

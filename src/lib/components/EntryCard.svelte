@@ -16,6 +16,6 @@
 		out:send|local={{ key: entry.name }}
 		src={entry.imageUrl}
 		alt={entry.name}
-		class="select-none transition duration-300 origin-bottom group-hover:scale-101"
+		class="select-none transition duration-300 origin-bottom group-hover:scale-102"
 	/>
 </button>
