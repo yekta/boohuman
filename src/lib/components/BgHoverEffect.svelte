@@ -1,4 +1,6 @@
 <script lang="ts">
+	import { isTouchscreen } from '$ts/stores/isTouchscreen';
+
 	export let from: TFrom = 'bottom';
 
 	type TFrom = 'top' | 'bottom';
@@ -8,9 +10,11 @@
 	class="w-[200%] h-full absolute left-0 top-0 transition duration-200 transform {from === 'top'
 		? '-translate-y-full'
 		: 'translate-y-full'}
-	  group-hover:translate-y-0"
+	  {$isTouchscreen ? '' : 'group-hover:translate-y-0'}"
 >
 	<div
-		class="w-full h-full p-gradient-135 transition duration-600 ease-in-steep transform group-hover:-translate-x-1/2"
+		class="w-full h-full p-gradient-135 transition duration-600 ease-in-steep transform {$isTouchscreen
+			? ''
+			: 'group-hover:-translate-x-1/2'}"
 	/>
 </div>

@@ -8,6 +8,7 @@
 	import { receive, send } from '$ts/animation/transitions';
 	import { canonicalUrl } from '$ts/constants/seo';
 	import { activeEntry } from '$ts/stores/activeEntry';
+	import { isTouchscreen } from '$ts/stores/isTouchscreen';
 	import type { TDBCollection, TDBCollectionEntry } from '$ts/types/db';
 	import { quadOut } from 'svelte/easing';
 	import { fade } from 'svelte/transition';
@@ -56,7 +57,9 @@
 				<p class="mr-0.5ch text-c-on-bg/60">ai:</p>
 				<a
 					href={collection.aiOption.url}
-					class="font-bold group relative overflow-hidden transition text-c-on-bg hover:text-c-bg px-1"
+					class="font-bold group relative overflow-hidden transition text-c-on-bg px-1 {$isTouchscreen
+						? ''
+						: 'hover:text-c-bg'}"
 					target="_blank"
 				>
 					<BgHoverEffect />
@@ -67,7 +70,9 @@
 				<p class="text-c-on-bg/60 mr-0.5ch">prompts by:</p>
 				<a
 					href={collection.owner.url}
-					class="font-bold group relative overflow-hidden transition text-c-on-bg hover:text-c-bg px-1"
+					class="font-bold group relative overflow-hidden transition text-c-on-bg px-1 {$isTouchscreen
+						? ''
+						: 'hover:text-c-bg'}"
 					target="_blank"
 				>
 					<BgHoverEffect />

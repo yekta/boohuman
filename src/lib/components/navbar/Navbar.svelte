@@ -1,8 +1,8 @@
 <script lang="ts">
 	import BgHoverEffect from '$components/BgHoverEffect.svelte';
-	import Divider from '$components/Divider.svelte';
 	import LogoHorizontal from '$components/LogoHorizontal.svelte';
 	import ProgressBar from '$components/navbar/ProgressBar.svelte';
+	import { isTouchscreen } from '$ts/stores/isTouchscreen';
 	import type { TNavbarOption } from '$ts/types/main';
 
 	const navbarOptions: TNavbarOption[] = [
@@ -19,7 +19,9 @@
 			class="px-5 py-3 self-stretch flex items-center justify-center relative overflow-hidden group"
 		>
 			<BgHoverEffect />
-			<LogoHorizontal class="w-40 group-hover:text-c-bg text-c-on-bg duration-200" />
+			<LogoHorizontal
+				class="w-40 text-c-on-bg duration-200 {$isTouchscreen ? '' : 'group-hover:text-c-bg'}"
+			/>
 		</a>
 		<div class="self-stretch flex items-center justify-center">
 			{#each navbarOptions as option}
@@ -29,7 +31,7 @@
 					href={option.href}
 				>
 					<BgHoverEffect />
-					<p class="relative font-bold group-hover:text-c-bg transition">
+					<p class="relative font-bold transition {$isTouchscreen ? '' : 'group-hover:text-c-bg'}">
 						{option.name}
 					</p>
 				</a>

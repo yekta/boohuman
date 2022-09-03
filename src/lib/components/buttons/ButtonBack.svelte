@@ -2,6 +2,7 @@
 	import Button from './Button.svelte';
 	import IconArrowDown from '$components/icons/IconArrowDown.svelte';
 	import { afterNavigate } from '$app/navigation';
+	import { isTouchscreen } from '$ts/stores/isTouchscreen';
 
 	let previousPage: string | undefined;
 	afterNavigate((navigaton) => {
@@ -11,7 +12,9 @@
 
 <Button href={previousPage ?? '/'}>
 	<IconArrowDown
-		class="w-5 h-5 mr-2 relative transform rotate-90 transition group-hover:-translate-x-1"
+		class="w-5 h-5 mr-2 relative transform rotate-90 transition {$isTouchscreen
+			? ''
+			: 'group-hover:-translate-x-1'}"
 		slot="icon"
 	/>
 	go back

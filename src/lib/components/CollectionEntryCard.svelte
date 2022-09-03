@@ -2,6 +2,7 @@
 	import { activeEntry } from '$ts/stores/activeEntry';
 	import { receive, send } from '$ts/animation/transitions';
 	import type { TDBCollectionEntry } from '$ts/types/db';
+	import { isTouchscreen } from '$ts/stores/isTouchscreen';
 
 	export let entry: TDBCollectionEntry;
 
@@ -38,7 +39,9 @@
 	<img
 		in:receive|local={{ key: entry.id }}
 		out:send|local={{ key: entry.id }}
-		class="select-none transition duration-300 origin-bottom group-hover:scale-102 bg-c-bg/10"
+		class="select-none transition duration-300 origin-bottom bg-c-bg/10 {$isTouchscreen
+			? ''
+			: 'group-hover:scale-102'}"
 		src={entry.imageUrl}
 		srcset={srcSetFromUrl(entry.imageUrl)}
 		{sizes}
