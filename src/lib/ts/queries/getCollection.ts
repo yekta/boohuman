@@ -8,28 +8,28 @@ export async function getCollection(slug: string) {
 			.from('art_collection')
 			.select(
 				`
-        id,
-        name,
-        slug,
-        gpuTimeHours:gpu_time_hours,
-        totalGenerations:total_generations,
-        entries:art_collection_entry (
           id,
           name,
-          imageUrl:image_url,
-          imageWidth:image_width,
-          imageHeight:image_height,
-          order
-        ),
-        aiOption:ai_option (
-          name,
-          url
-        ),
-        owner:public_user (
-          name,
-          url
-        )
-      `
+          slug,
+          gpuTimeHours:gpu_time_hours,
+          totalGenerations:total_generations,
+          entries:art_collection_entry (
+            id,
+            name,
+            imageUrl:image_url,
+            imageWidth:image_width,
+            imageHeight:image_height,
+            order
+          ),
+          aiOption:ai_option (
+            name,
+            url
+          ),
+          owner:public_user (
+            name,
+            url
+          )
+        `
 			)
 			.eq('slug', slug)
 			.single();
