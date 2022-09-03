@@ -1,12 +1,18 @@
-export interface TDBCollection {
+export interface TDBCollectionShallow {
 	id: string;
 	name: string;
 	description?: string;
+	imageUrl: string;
+	imageWidth: number;
+	imageHeight: number;
 	gpuTimeHours: number;
 	totalGenerations: number;
 	slug: string;
 	aiOption: TDBAiOption;
 	owner: TDBPublicUser;
+}
+
+export interface TDBCollection extends TDBCollectionShallow {
 	entries: TDBCollectionEntry[];
 }
 

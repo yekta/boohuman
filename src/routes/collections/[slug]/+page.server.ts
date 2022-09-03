@@ -12,6 +12,7 @@ export const load: ServerLoad = async ({ params }) => {
 				`
 					id,
 					name,
+					slug,
 					gpuTimeHours:gpu_time_hours,
 					totalGenerations:total_generations,
 					entries:art_collection_entry (

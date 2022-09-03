@@ -38,12 +38,12 @@
 	<img
 		in:receive|local={{ key: entry.id }}
 		out:send|local={{ key: entry.id }}
+		class="select-none transition duration-300 origin-bottom group-hover:scale-102"
 		src={entry.imageUrl}
 		srcset={srcSetFromUrl(entry.imageUrl)}
-		alt={entry.name}
+		{sizes}
 		width={entry.imageWidth}
 		height={entry.imageHeight}
-		{sizes}
-		class="select-none transition duration-300 origin-bottom group-hover:scale-102"
+		alt={entry.name}
 	/>
 </button>

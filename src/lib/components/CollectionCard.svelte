@@ -1,14 +1,28 @@
 <script lang="ts">
 	import BgHoverEffect from '$components/BgHoverEffect.svelte';
-	import type { TCollectionShallow } from '$ts/types/main';
+	import type { TDBCollectionShallow } from '$ts/types/db';
 
-	export let collection: TCollectionShallow;
+	export let collection: TDBCollectionShallow;
 	export { classes as class };
 
 	let classes = '';
+
+	const sizes = '(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw';
+
+	const imageSizes = [512, 768, 1024, 1536, 2048];
+	function srcSetFromUrl(url: string) {
+		const { pathname, hostname, protocol } = new URL(url);
+		const prefix = '/boohuman/';
+		const rest = pathname.slice(prefix.length);
+		let srcset = '';
+		imageSizes.forEach((size) => {
+			srcset += `${protocol}//${hostname}${prefix}tr:w-${size}/${rest} ${size}w, `;
+		});
+		return srcset;
+	}
 </script>
 
-<div class={classes}>
+<div class="w-full md:w-1/2 lg:w-1/3 p-2.5 {classes}">
 	<div class="relative group">
 		<div
 			class="w-full h-full absolute left-0 top-0 transition transform 
@@ -32,9 +46,11 @@
 					</div>
 					<img
 						class="w-full h-auto relative"
+						src={collection.imageUrl}
+						srcset={srcSetFromUrl(collection.imageUrl)}
+						{sizes}
 						width={collection.imageWidth}
 						height={collection.imageHeight}
-						src={collection.imageUrl}
 						alt={collection.name}
 					/>
 				</div>

@@ -1,7 +1,10 @@
 <script lang="ts">
 	import CollectionCard from '$components/CollectionCard.svelte';
-
-	import { collections } from '$ts/constants/collections';
+	import type { TDBCollectionShallow } from '$ts/types/db';
+	export let data: {
+		collections: TDBCollectionShallow[];
+	};
+	const { collections } = data;
 </script>
 
 <div class="flex-1 flex flex-col items-center justify-center px-5">
