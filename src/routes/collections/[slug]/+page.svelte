@@ -122,7 +122,7 @@
 				in:receive|local={{ key: oldActiveEntry?.id }}
 				out:send|local={{ key: oldActiveEntry?.id }}
 				use:clickoutside={closeModal}
-				class="w-full h-full select-none"
+				class="w-full h-full select-none bg-c-bg/10"
 				src={oldActiveEntry?.imageUrl}
 				width={oldActiveEntry?.imageWidth}
 				height={oldActiveEntry?.imageHeight}

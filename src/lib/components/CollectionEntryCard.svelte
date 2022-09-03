@@ -38,7 +38,7 @@
 	<img
 		in:receive|local={{ key: entry.id }}
 		out:send|local={{ key: entry.id }}
-		class="select-none transition duration-300 origin-bottom group-hover:scale-102"
+		class="select-none transition duration-300 origin-bottom group-hover:scale-102 bg-c-bg/10"
 		src={entry.imageUrl}
 		srcset={srcSetFromUrl(entry.imageUrl)}
 		{sizes}

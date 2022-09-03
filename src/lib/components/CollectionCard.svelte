@@ -45,7 +45,7 @@
 						</p>
 					</div>
 					<img
-						class="w-full h-auto relative"
+						class="w-full h-auto relative bg-c-bg/10"
 						src={collection.imageUrl}
 						srcset={srcSetFromUrl(collection.imageUrl)}
 						{sizes}
