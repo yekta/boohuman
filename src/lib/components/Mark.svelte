@@ -1,5 +1,5 @@
 <div
-	class="w-48 max-w-full aspect-square flex flex-col relative origin-bottom move-animation overflow-hidden"
+	class="w-1/3 md:w-40 max-w-full aspect-square flex flex-col relative origin-bottom move-animation overflow-hidden"
 >
 	<div class="w-full h-full p-gradient-135 absolute" />
 	<div class="w-full flex mt-[35.714286%] h-[28.571429%] justify-center relative">
