@@ -11,7 +11,7 @@ CREATE TABLE "ai_option" (
 
 CREATE TABLE "art_collection" (
     "name" TEXT NOT NULL,
-    "description" TEXT,
+    "description" TEXT NOT NULL,
     "image_url" TEXT NOT NULL,
     "image_width" INTEGER NOT NULL,
     "image_height" INTEGER NOT NULL,
@@ -35,7 +35,7 @@ CREATE TABLE "public_user" (
 
 CREATE TABLE "art_collection_entry" (
     "name" TEXT NOT NULL,
-    "description" TEXT,
+    "description" TEXT NOT NULL,
     "imageUrl" TEXT NOT NULL,
     "imageWidth" INTEGER NOT NULL,
     "imageHeight" INTEGER NOT NULL,
