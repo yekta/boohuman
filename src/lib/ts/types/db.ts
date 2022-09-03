@@ -1,7 +1,7 @@
 export interface TDBCollectionShallow {
 	id: string;
 	name: string;
-	description?: string;
+	description: string;
 	imageUrl: string;
 	imageWidth: number;
 	imageHeight: number;
@@ -19,7 +19,7 @@ export interface TDBCollection extends TDBCollectionShallow {
 export interface TDBCollectionEntry {
 	id: string;
 	name: string;
-	description?: string;
+	description: string;
 	imageUrl: string;
 	imageWidth: number;
 	imageHeight: number;

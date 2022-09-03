@@ -3,8 +3,11 @@
 	import ButtonBack from '$components/buttons/ButtonBack.svelte';
 
 	import EntryCard from '$components/CollectionEntryCard.svelte';
+	import MetaTag from '$components/MetaTag.svelte';
 	import { clickoutside } from '$ts/actions/clickoutside';
 	import { receive, send } from '$ts/animation/transitions';
+	import { collections } from '$ts/constants/collections';
+	import { canonicalUrl } from '$ts/constants/seo';
 	import { activeEntry } from '$ts/stores/activeEntry';
 	import type { TDBCollection, TDBCollectionEntry } from '$ts/types/db';
 	import { quadOut } from 'svelte/easing';
@@ -27,6 +30,15 @@
 		}
 	}
 </script>
+
+<MetaTag
+	title="{collection.name} | Collections"
+	description={collection.description}
+	imageUrl={collection.imageUrl}
+	imageWidth={collection.imageWidth}
+	imageHeight={collection.imageHeight}
+	canonical="{canonicalUrl}/collections/{collection.slug}"
+/>
 
 <div class="w-full flex flex-col">
 	<!-- Title section -->
