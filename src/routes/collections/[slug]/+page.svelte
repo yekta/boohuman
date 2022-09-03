@@ -31,7 +31,7 @@
 </script>
 
 <MetaTag
-	title="{collection.name} | Collections"
+	title="{collection.name.toLowerCase()} | collections"
 	description={collection.description}
 	imageUrl={collection.imageUrl}
 	imageWidth={collection.imageWidth}
