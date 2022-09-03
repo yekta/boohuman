@@ -6,7 +6,7 @@
 
 <MetaTag title="about | boohuman" description="" imageUrl="" canonical="{canonicalUrl}/about" />
 
-<div class="flex-1 flex flex-col items-center justify-center px-5 pt-12 pb-16">
+<div class="flex-1 flex flex-col items-center justify-center px-5 py-12">
 	<Mark />
 	<h1 class="text-5xl font-bold text-center leading-tight mt-10">ai is coming for you.</h1>
 	<h2
