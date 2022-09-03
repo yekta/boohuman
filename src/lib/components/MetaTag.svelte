@@ -1,6 +1,4 @@
 <script lang="ts">
-	import { canonicalUrl } from '$ts/constants/seo';
-
 	import { MetaTags } from 'svelte-meta-tags';
 	export let title: string;
 	export let description: string;

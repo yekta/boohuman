@@ -6,7 +6,6 @@
 	import MetaTag from '$components/MetaTag.svelte';
 	import { clickoutside } from '$ts/actions/clickoutside';
 	import { receive, send } from '$ts/animation/transitions';
-	import { collections } from '$ts/constants/collections';
 	import { canonicalUrl } from '$ts/constants/seo';
 	import { activeEntry } from '$ts/stores/activeEntry';
 	import type { TDBCollection, TDBCollectionEntry } from '$ts/types/db';
