@@ -16,7 +16,7 @@
 	canonical="{canonicalUrl}/collections"
 />
 
-<div class="flex-1 flex flex-col items-center justify-center px-5">
+<div class="flex-1 flex flex-col items-center justify-center px-5 pt-12 pb-20">
 	<h1 class="text-4xl md:text-5xl leading-tight md:leading-tight font-bold text-center">
 		collections
 	</h1>

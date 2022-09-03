@@ -105,7 +105,7 @@
 		{/each}
 	</div>
 	<!-- Back button -->
-	<div class="w-full flex justify-center mt-12">
+	<div class="w-full flex justify-center mt-12 mb-12">
 		<ButtonBack />
 	</div>
 </div>

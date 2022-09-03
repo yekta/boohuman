@@ -5,7 +5,7 @@
 	const year = new Date().getFullYear();
 </script>
 
-<div class="w-full flex flex-col mt-16">
+<div class="w-full flex flex-col">
 	<Divider />
 	<div class="w-full flex items-center justify-center px-5 py-8">
 		<LogoHorizontal class="w-28" />
