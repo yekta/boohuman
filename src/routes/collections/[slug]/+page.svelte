@@ -123,16 +123,20 @@
 				(oldActiveEntry?.imageHeight || 1)};"
 			class="max-w-full max-h-full object-contain"
 		>
-			<img
+			<div
 				in:receive|local={{ key: oldActiveEntry?.id }}
 				out:send|local={{ key: oldActiveEntry?.id }}
-				use:clickoutside={closeModal}
-				class="w-full h-full select-none bg-c-bg/10"
-				src={oldActiveEntry?.imageUrl}
-				width={oldActiveEntry?.imageWidth}
-				height={oldActiveEntry?.imageHeight}
-				alt={oldActiveEntry?.name}
-			/>
+				class="w-full bg-c-bg/10"
+			>
+				<img
+					use:clickoutside={closeModal}
+					class="w-full h-full select-none"
+					src={oldActiveEntry?.imageUrl}
+					width={oldActiveEntry?.imageWidth}
+					height={oldActiveEntry?.imageHeight}
+					alt={oldActiveEntry?.name}
+				/>
+			</div>
 		</div>
 	</div>
 {/if}

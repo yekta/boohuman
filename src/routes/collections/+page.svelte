@@ -17,7 +17,9 @@
 />
 
 <div class="flex-1 flex flex-col items-center justify-center px-5">
-	<h1 class="text-5xl font-bold text-center leading-tight">collections</h1>
+	<h1 class="text-4xl md:text-5xl leading-tight md:leading-tight font-bold text-center">
+		collections
+	</h1>
 	<div
 		class="w-full flex flex-row flex-wrap justify-center items-start mt-6 px-2.5 md:px-8 lg:px-12"
 	>

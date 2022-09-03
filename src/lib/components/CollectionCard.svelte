@@ -45,15 +45,17 @@
 							{collection.name}
 						</p>
 					</div>
-					<img
-						class="w-full h-auto relative bg-c-bg/10"
-						src={collection.imageUrl}
-						srcset={srcSetFromUrl(collection.imageUrl)}
-						{sizes}
-						width={collection.imageWidth}
-						height={collection.imageHeight}
-						alt={collection.name}
-					/>
+					<div class="w-full bg-c-bg/10">
+						<img
+							class="w-full h-auto relative"
+							src={collection.imageUrl}
+							srcset={srcSetFromUrl(collection.imageUrl)}
+							{sizes}
+							width={collection.imageWidth}
+							height={collection.imageHeight}
+							alt={collection.name}
+						/>
+					</div>
 				</div>
 			</div>
 		</a>

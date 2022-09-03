@@ -13,6 +13,7 @@
 	.blink-animation {
 		animation-name: blink;
 		animation-duration: 1.5s;
+		animation-delay: -1s;
 		animation-timing-function: cubic-bezier(0.5, 0, 0.5, 1);
 		animation-iteration-count: infinite;
 	}

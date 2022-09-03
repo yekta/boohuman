@@ -36,17 +36,17 @@
 	on:click={() => setActiveEntry(entry)}
 	class="w-full overflow-hidden group"
 >
-	<img
-		in:receive|local={{ key: entry.id }}
-		out:send|local={{ key: entry.id }}
-		class="select-none transition duration-300 origin-bottom bg-c-bg/10 {$isTouchscreen
-			? ''
-			: 'group-hover:scale-102'}"
-		src={entry.imageUrl}
-		srcset={srcSetFromUrl(entry.imageUrl)}
-		{sizes}
-		width={entry.imageWidth}
-		height={entry.imageHeight}
-		alt={entry.name}
-	/>
+	<div in:receive|local={{ key: entry.id }} out:send|local={{ key: entry.id }} class="bg-c-bg/10">
+		<img
+			class="select-none transition duration-300 origin-bottom {$isTouchscreen
+				? ''
+				: 'group-hover:scale-102'}"
+			src={entry.imageUrl}
+			srcset={srcSetFromUrl(entry.imageUrl)}
+			{sizes}
+			width={entry.imageWidth}
+			height={entry.imageHeight}
+			alt={entry.name}
+		/>
+	</div>
 </button>
