@@ -1,0 +1,37 @@
+import { supabase } from '$ts/constants/supabase';
+import type { TDBCollection } from '$ts/types/db';
+import type { PostgrestError } from '@supabase/supabase-js';
+
+export async function getCollection(slug: string) {
+	const { data, error }: { data: TDBCollection | null; error: PostgrestError | null } =
+		await supabase
+			.from('art_collection')
+			.select(
+				`
+        id,
+        name,
+        slug,
+        gpuTimeHours:gpu_time_hours,
+        totalGenerations:total_generations,
+        entries:art_collection_entry (
+          id,
+          name,
+          imageUrl:image_url,
+          imageWidth:image_width,
+          imageHeight:image_height,
+          order
+        ),
+        aiOption:ai_option (
+          name,
+          url
+        ),
+        owner:public_user (
+          name,
+          url
+        )
+      `
+			)
+			.eq('slug', slug)
+			.single();
+	return { data, error };
+}
