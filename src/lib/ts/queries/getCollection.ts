@@ -13,6 +13,9 @@ export async function getCollection(slug: string) {
           slug,
           gpuTimeHours:gpu_time_hours,
           totalGenerations:total_generations,
+          previewImageUrl:preview_image_url,
+          previewImageWidth:preview_image_width,
+          previewImageHeight:preview_image_height,
           entries:art_collection_entry (
             id,
             name,

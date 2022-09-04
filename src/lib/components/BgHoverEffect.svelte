@@ -10,11 +10,11 @@
 	class="w-[200%] h-full absolute left-0 top-0 transition duration-200 transform {from === 'top'
 		? '-translate-y-full'
 		: 'translate-y-full'}
-	  {$isTouchscreen ? '' : 'group-hover:translate-y-0'}"
+	  {$isTouchscreen ? 'group-active:translate-y-0' : 'group-hover:translate-y-0'}"
 >
 	<div
 		class="w-full h-full p-gradient-135 transition duration-600 ease-out-steep transform {$isTouchscreen
-			? ''
+			? 'group-active:-translate-x-1/2'
 			: 'group-hover:-translate-x-1/2'}"
 	/>
 </div>

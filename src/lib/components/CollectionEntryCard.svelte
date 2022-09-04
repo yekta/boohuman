@@ -39,7 +39,7 @@
 	<div in:receive|local={{ key: entry.id }} out:send|local={{ key: entry.id }} class="bg-c-bg/10">
 		<img
 			class="select-none transition duration-300 origin-bottom {$isTouchscreen
-				? ''
+				? 'group-active:scale-102'
 				: 'group-hover:scale-102'}"
 			src={entry.imageUrl}
 			srcset={srcSetFromUrl(entry.imageUrl)}

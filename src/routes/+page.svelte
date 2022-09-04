@@ -13,7 +13,7 @@
 <MetaTag
 	title="boohuman"
 	description="ai generated, curated art. no edits of any kind."
-	imageUrl=""
+	imageUrl="{canonicalUrl}/previews/home.jpg"
 	canonical={canonicalUrl}
 />
 

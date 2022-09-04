@@ -1,4 +1,6 @@
 <script lang="ts">
+	import { page } from '$app/stores';
+
 	import CollectionCard from '$components/CollectionCard.svelte';
 	import MetaTag from '$components/MetaTag.svelte';
 	import { canonicalUrl } from '$ts/constants/seo';
@@ -12,7 +14,7 @@
 <MetaTag
 	title="collections | boohuman"
 	description=""
-	imageUrl=""
+	imageUrl="{canonicalUrl}/previews{$page.url.pathname}.jpg"
 	canonical="{canonicalUrl}/collections"
 />
 

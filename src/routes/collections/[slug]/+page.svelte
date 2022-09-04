@@ -1,4 +1,6 @@
 <script lang="ts">
+	import { page } from '$app/stores';
+
 	import BgHoverEffect from '$components/BgHoverEffect.svelte';
 	import ButtonBack from '$components/buttons/ButtonBack.svelte';
 
@@ -34,9 +36,9 @@
 <MetaTag
 	title="{collection.name.toLowerCase()} | collections"
 	description={collection.description}
-	imageUrl={collection.imageUrl}
-	imageWidth={collection.imageWidth}
-	imageHeight={collection.imageHeight}
+	imageUrl={collection.previewImageUrl}
+	imageWidth={collection.previewImageWidth}
+	imageHeight={collection.previewImageHeight}
 	canonical="{canonicalUrl}/collections/{collection.slug}"
 />
 
@@ -58,7 +60,7 @@
 				<a
 					href={collection.aiOption.url}
 					class="font-bold group relative overflow-hidden transition text-c-on-bg px-1 {$isTouchscreen
-						? ''
+						? 'active:text-c-bg'
 						: 'hover:text-c-bg'}"
 					target="_blank"
 				>
@@ -71,7 +73,7 @@
 				<a
 					href={collection.owner.url}
 					class="font-bold group relative overflow-hidden transition text-c-on-bg px-1 {$isTouchscreen
-						? ''
+						? 'active:text-c-bg'
 						: 'hover:text-c-bg'}"
 					target="_blank"
 				>

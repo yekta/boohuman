@@ -34,7 +34,9 @@
 		>
 			<BgHoverEffect />
 			<LogoHorizontal
-				class="w-40 text-c-on-bg duration-200 {$isTouchscreen ? '' : 'group-hover:text-c-bg'}"
+				class="w-40 text-c-on-bg duration-200 {$isTouchscreen
+					? 'group-active:text-c-bg'
+					: 'group-hover:text-c-bg'}"
 			/>
 		</a>
 		<div
@@ -51,7 +53,7 @@
 				<IconMenu
 					class="w-8 h-8 transition relative transform {isDropdownOpen
 						? 'rotate-90'
-						: ''} {$isTouchscreen ? '' : 'group-hover:text-c-bg'}"
+						: ''} {$isTouchscreen ? 'group-active:text-c-bg' : 'group-hover:text-c-bg'}"
 				/>
 			</button>
 			<div class="relative z-40">
@@ -70,8 +72,8 @@
 								>
 									<BgHoverEffect />
 									<p
-										class="relative font-bold transition text-lg {$isTouchscreen
-											? ''
+										class="relative font-bold transition text-lg text-c-on-bg {$isTouchscreen
+											? 'group-active:text-c-bg'
 											: 'group-hover:text-c-bg'}"
 									>
 										{option.name}
@@ -92,7 +94,11 @@
 					href={option.href}
 				>
 					<BgHoverEffect />
-					<p class="relative font-bold transition {$isTouchscreen ? '' : 'group-hover:text-c-bg'}">
+					<p
+						class="relative font-bold transition text-c-on-bg {$isTouchscreen
+							? 'group-active:text-c-bg'
+							: 'group-hover:text-c-bg'}"
+					>
 						{option.name}
 					</p>
 				</a>

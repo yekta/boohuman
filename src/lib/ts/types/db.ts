@@ -5,6 +5,9 @@ export interface TDBCollectionShallow {
 	imageUrl: string;
 	imageWidth: number;
 	imageHeight: number;
+	previewImageUrl: string;
+	previewImageWidth: number;
+	previewImageHeight: number;
 	gpuTimeHours: number;
 	totalGenerations: number;
 	slug: string;
