@@ -1,6 +1,4 @@
 <script lang="ts">
-	import { page } from '$app/stores';
-
 	import BgHoverEffect from '$components/BgHoverEffect.svelte';
 	import ButtonBack from '$components/buttons/ButtonBack.svelte';
 
