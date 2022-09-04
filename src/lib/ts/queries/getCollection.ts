@@ -11,6 +11,7 @@ export async function getCollection(slug: string) {
           id,
           name,
           slug,
+          description,
           gpuTimeHours:gpu_time_hours,
           totalGenerations:total_generations,
           previewImageUrl:preview_image_url,

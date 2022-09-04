@@ -35,7 +35,7 @@
 
 <MetaTag
 	title="{collection.name.toLowerCase()} | collections"
-	description={collection.description}
+	description={collection.description.toLowerCase()}
 	imageUrl={collection.previewImageUrl}
 	imageWidth={collection.previewImageWidth}
 	imageHeight={collection.previewImageHeight}
