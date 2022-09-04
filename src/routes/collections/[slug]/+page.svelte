@@ -43,14 +43,14 @@
 <div class="w-full flex flex-col">
 	<!-- Title section -->
 	<div class="w-full flex flex-col md:flex-row items-center justify-center px-5 py-12">
-		<div class="flex flex-col items-center md:items-end justify-center self-stretch">
-			<h1 class="text-4xl font-bold text-center md:text-right max-w-md">
+		<div class="flex flex-col items-stretch md:items-end justify-center">
+			<h1 class="text-4xl font-bold text-center md:text-right max-w-md px-5 md:px-0">
 				{collection.name.toLowerCase()}
 			</h1>
+			<div class="block md:hidden p-gradient-90 h-2px self-stretch mt-7" />
 		</div>
-		<div class="h-2px md:w-2px md:h-auto self-stretch my-6 md:mx-8 lg:mx-12 md:my-0 px-5 md:px-0">
+		<div class="h-2px md:w-2px md:h-auto self-stretch mt-7 md:mx-12 md:my-0 px-5 md:px-0">
 			<div class="hidden md:block p-gradient-180 w-full h-full" />
-			<div class="block md:hidden p-gradient-90 w-full h-full" />
 		</div>
 		<div class="font-light flex flex-col md:py-2 gap-1.5 text-lg">
 			<div class="flex items-center">

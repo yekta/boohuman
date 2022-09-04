@@ -5,7 +5,7 @@
 	import '$css/app.css';
 </script>
 
-<main class="w-full bg-c-bg text-c-on-bg min-h-screen flex flex-col overflow-x-hidden">
+<main class="w-full bg-c-bg text-c-on-bg min-h-screen flex flex-col">
 	<Navbar />
 	<slot />
 	<Footer />
