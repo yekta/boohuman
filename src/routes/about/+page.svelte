@@ -7,7 +7,7 @@
 
 <MetaTag
 	title="about | boohuman"
-	description=""
+	description="ai is coming for you. boo!"
 	imageUrl="{canonicalUrl}/previews{$page.url.pathname}.jpg"
 	canonical="{canonicalUrl}/about"
 />

@@ -46,7 +46,7 @@
 							class="w-full text-center px-5 py-5 text-xl font-bold relative transition
 								text-c-on-bg {$isTouchscreen ? 'group-active:text-c-bg' : 'group-hover:text-c-bg'}"
 						>
-							{collection.name}
+							{collection.name.toLowerCase()}
 						</p>
 					</div>
 					<div class="w-full bg-c-bg/10">

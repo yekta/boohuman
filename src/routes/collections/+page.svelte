@@ -13,7 +13,7 @@
 
 <MetaTag
 	title="collections | boohuman"
-	description=""
+	description="ai generated, human curated art collections."
 	imageUrl="{canonicalUrl}/previews{$page.url.pathname}.jpg"
 	canonical="{canonicalUrl}/collections"
 />
@@ -23,7 +23,7 @@
 		collections
 	</h1>
 	<div
-		class="w-full flex flex-row flex-wrap justify-center items-start mt-6 px-2.5 md:px-8 lg:px-12"
+		class="w-full flex flex-row flex-wrap justify-center items-start mt-5 px-2.5 md:px-8 lg:px-12"
 	>
 		{#each collections as collection}
 			<CollectionCard {collection} class="md:w-1/2 lg:w-1/3 p-2.5" />
