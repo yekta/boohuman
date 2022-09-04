@@ -4,8 +4,6 @@ import { readable } from 'svelte/store';
 let _isTouchscreen = true;
 
 export const isTouchscreen = readable<boolean>(_isTouchscreen, (set) => {
-	let lastTouchTime = 0;
-
 	if (browser) {
 		document?.body.addEventListener('touchstart', handleTouch);
 		document?.body.addEventListener('mousemove', disableTouch);
@@ -13,15 +11,14 @@ export const isTouchscreen = readable<boolean>(_isTouchscreen, (set) => {
 
 	function handleTouch() {
 		if (!_isTouchscreen) {
-			lastTouchTime = Date.now();
 			_isTouchscreen = true;
 			set(_isTouchscreen);
 		}
 	}
 
 	function disableTouch() {
-		if (Date.now() - lastTouchTime < 1000) return;
-		if (_isTouchscreen) {
+		const isTouchEnabled = 'ontouchstart' in window || navigator.maxTouchPoints > 0;
+		if (_isTouchscreen && !isTouchEnabled) {
 			_isTouchscreen = false;
 			set(_isTouchscreen);
 		}
