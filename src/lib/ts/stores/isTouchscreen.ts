@@ -1,7 +1,7 @@
 import { browser } from '$app/environment';
 import { readable } from 'svelte/store';
 
-let _isTouchscreen = false;
+let _isTouchscreen = true;
 
 export const isTouchscreen = readable<boolean>(_isTouchscreen, (set) => {
 	let lastTouchTime = 0;
