@@ -62,19 +62,23 @@
 	});
 </script>
 
-<div
-	style="transform: translateX({progressType === 'navigating'
-		? $sizeBefore * -100
-		: $sizeAfter * -100}%)"
-	class="w-full"
->
-	<div
-		style="transition-delay: {progressType === 'navigating' ? delay : 0}ms"
-		class="w-[200%] h-2px background-gradient transition duration-300 transform origin-top {progressType ===
-		'navigating'
-			? 'scale-y-[300%]'
-			: 'scale-y-100'}"
-	/>
+<div class="w-full relative">
+	<div class="w-full absolute left-0 top-0 h-[6px] overflow-hidden">
+		<div
+			style="transform: translateX({progressType === 'navigating'
+				? $sizeBefore * -100
+				: $sizeAfter * -100}%)"
+			class="w-full"
+		>
+			<div
+				style="transition-delay: {progressType === 'navigating' ? delay : 0}ms"
+				class="w-[200%] h-2px background-gradient transition duration-300 transform origin-top {progressType ===
+				'navigating'
+					? 'scale-y-[300%]'
+					: 'scale-y-100'}"
+			/>
+		</div>
+	</div>
 </div>
 
 <style>
