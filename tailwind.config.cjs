@@ -27,7 +27,7 @@ module.exports = {
 		},
 		transitionTimingFunction: {
 			DEFAULT: 'cubic-bezier(0, 0.5, 0.5, 1)',
-			'in-steep': 'cubic-bezier(.6,0,.55,.55)'
+			'out-steep': 'cubic-bezier(0.4,0.4,0.5,1)'
 		},
 		extend: {
 			colors: {

@@ -13,7 +13,7 @@
 	  {$isTouchscreen ? '' : 'group-hover:translate-y-0'}"
 >
 	<div
-		class="w-full h-full p-gradient-135 transition duration-600 ease-in-steep transform {$isTouchscreen
+		class="w-full h-full p-gradient-135 transition duration-600 ease-out-steep transform {$isTouchscreen
 			? ''
 			: 'group-hover:-translate-x-1/2'}"
 	/>
