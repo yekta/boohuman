@@ -1,24 +1,23 @@
 <script lang="ts">
 	import { afterNavigate, beforeNavigate } from '$app/navigation';
-	import Divider from '$components/Divider.svelte';
 	import { tick } from 'svelte';
 	import { quadOut } from 'svelte/easing';
 	import { tweened, type Tweened } from 'svelte/motion';
 
-	export let animationTime = 500;
+	export let animationTime = 400;
 	export let delay = 200;
 
 	type TProgressType = 'navigating' | 'idle';
 
 	let progressType: TProgressType = 'idle';
+	const minValue = 0;
 	const maxValue = 1;
-	const minValue = 0.25;
 
 	let sizeBefore: Tweened<number>;
 	let sizeAfter: Tweened<number>;
 
-	setSizeBefore(maxValue);
-	setSizeAfter(maxValue);
+	setSizeBefore(minValue);
+	setSizeAfter(minValue);
 
 	$: $sizeBefore, alternateSizeBefore();
 
@@ -42,32 +41,55 @@
 
 	function setSizeAfter(n: number) {
 		sizeAfter = tweened(n, {
-			duration: animationTime * ((maxValue - $sizeBefore) / (maxValue - minValue)),
+			duration: animationTime * (($sizeBefore - minValue) / (maxValue - minValue)),
 			easing: quadOut,
 			delay: delay
 		});
 	}
 
 	beforeNavigate(() => {
-		setSizeBefore(maxValue);
+		setSizeBefore(minValue);
 		progressType = 'navigating';
-		sizeBefore.set(minValue);
+		sizeBefore.set(maxValue);
 	});
 
 	afterNavigate(async () => {
 		progressType = 'idle';
 		setSizeAfter($sizeBefore);
-		sizeAfter.set(maxValue);
+		sizeAfter.set(minValue);
 		await tick();
-		setSizeBefore(maxValue);
+		setSizeBefore(minValue);
 	});
 </script>
 
-<div class="w-full relative overflow-hidden z-0">
+<div
+	style="transform: translateX({progressType === 'navigating'
+		? $sizeBefore * -100
+		: $sizeAfter * -100}%)"
+	class="w-full"
+>
 	<div
-		style="transform: scaleX({progressType === 'navigating' ? $sizeBefore : $sizeAfter})"
-		class="w-full"
-	>
-		<Divider />
-	</div>
+		style="transition-delay: {progressType === 'navigating' ? delay : 0}ms"
+		class="w-[200%] h-2px background-gradient transition duration-300 transform origin-top {progressType ===
+		'navigating'
+			? 'scale-y-[300%]'
+			: 'scale-y-100'}"
+	/>
 </div>
+
+<style>
+	.background-gradient {
+		background: linear-gradient(
+			90deg,
+			rgba(var(--c-color-1)) 0%,
+			rgba(var(--c-color-2)) 12.5%,
+			rgba(var(--c-color-3)) 25%,
+			rgba(var(--c-color-4)) 37.5%,
+			rgba(var(--c-color-5)) 50%,
+			rgba(var(--c-color-1)) 62.5%,
+			rgba(var(--c-color-2)) 75%,
+			rgba(var(--c-color-3)) 87.5%,
+			rgba(var(--c-color-4)) 100%
+		);
+	}
+</style>
