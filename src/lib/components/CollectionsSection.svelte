@@ -8,8 +8,8 @@
 	let classes = '';
 </script>
 
-<div class="w-full flex flex-col items-center pt-12 pb-20 {classes}">
-	<h2 class="text-4xl md:text-5xl leading-tight md:leading-tight font-bold">collections</h2>
+<div class="w-full flex flex-col items-center pt-12 pb-16 {classes}">
+	<h2 class="text-3xl md:text-4xl leading-tight md:leading-tight font-bold">collections</h2>
 	<div
 		class="w-full flex flex-row flex-wrap justify-center items-start mt-5 px-2.5 md:px-8 lg:px-12"
 	>
