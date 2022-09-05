@@ -11,7 +11,7 @@
 <div class="w-full flex flex-col items-center pt-12 pb-16 {classes}">
 	<h2 class="text-3xl md:text-4xl leading-tight md:leading-tight font-bold">collections</h2>
 	<div
-		class="w-full flex flex-row flex-wrap justify-center items-start mt-5 px-2.5 md:px-8 lg:px-12"
+		class="w-full flex flex-row flex-wrap justify-center items-start mt-4 px-2.5 md:px-8 lg:px-12"
 	>
 		{#each collections as collection}
 			<CollectionCard {collection} />

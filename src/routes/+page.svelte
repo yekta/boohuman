@@ -27,7 +27,7 @@
 			<br />
 			human curated
 			<br />
-			<div class="text-6xl md:text-7xl text-c-bg inline-block px-3 mt-4 relative overflow-hidden">
+			<div class="text-6xl md:text-7xl text-c-bg inline-block px-3 mt-3 relative overflow-hidden">
 				<div class="absolute -left-1/2 -top-1/2 p-gradient-animation" />
 				<p class="relative">art</p>
 			</div>
