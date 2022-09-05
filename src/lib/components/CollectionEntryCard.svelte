@@ -36,7 +36,11 @@
 	on:click={() => setActiveEntry(entry)}
 	class="w-full overflow-hidden group"
 >
-	<div in:receive|local={{ key: entry.id }} out:send|local={{ key: entry.id }} class="bg-c-bg/10">
+	<div
+		in:receive|local={{ key: entry.id }}
+		out:send|local={{ key: entry.id }}
+		class="bg-c-bg-secondary"
+	>
 		<img
 			class="select-none transition duration-300 origin-bottom {$isTouchscreen
 				? 'group-active:scale-102'

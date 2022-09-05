@@ -40,6 +40,11 @@
 	canonical="{canonicalUrl}/collections/{collection.slug}"
 />
 
+<svelte:window
+	on:keyup={(e) => {
+		if ($activeEntry !== undefined && e.key === 'Escape') closeModal();
+	}}
+/>
 <div class="w-full flex flex-col">
 	<!-- Title section -->
 	<div class="w-full flex flex-col md:flex-row items-center justify-center px-5 py-12">
@@ -116,7 +121,7 @@
 		class="fixed flex flex-col items-center justify-center left-0 top-0 w-screen h-screen z-40 bg-c-bg/90"
 	/>
 	<div
-		class="fixed flex flex-col items-center justify-center left-0 top-0 w-screen h-screen z-50 p-5"
+		class="fixed flex flex-col items-center justify-center left-0 top-0 w-screen h-screen z-50 p-5 md:p-10"
 	>
 		<div
 			style="aspect-ratio: {(oldActiveEntry?.imageWidth || 0) /
@@ -126,7 +131,7 @@
 			<div
 				in:receive|local={{ key: oldActiveEntry?.id }}
 				out:send|local={{ key: oldActiveEntry?.id }}
-				class="w-full bg-c-bg/10"
+				class="w-full bg-c-bg-secondary"
 			>
 				<img
 					use:clickoutside={closeModal}

@@ -49,7 +49,7 @@
 							{collection.name.toLowerCase()}
 						</p>
 					</div>
-					<div class="w-full bg-c-bg/10">
+					<div class="w-full bg-c-bg-secondary">
 						<img
 							class="w-full h-auto relative"
 							src={collection.imageUrl}

@@ -99,4 +99,14 @@ button:focus-visible {
 		rgba(var(--c-color-5)) 100%
 	);
 }
+.p-gradient-270 {
+	background: linear-gradient(
+		270deg,
+		rgba(var(--c-color-1)) 0%,
+		rgba(var(--c-color-2)) 25%,
+		rgba(var(--c-color-3)) 50%,
+		rgba(var(--c-color-4)) 75%,
+		rgba(var(--c-color-5)) 100%
+	);
+}
 @tailwind utilities;
