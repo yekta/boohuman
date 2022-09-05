@@ -1,5 +1,6 @@
 import { canonicalUrl } from '$ts/constants/seo';
 import { supabase } from '$ts/constants/supabase';
+import type { PostgrestError } from '@supabase/supabase-js';
 import type { RequestHandler } from '@sveltejs/kit';
 
 export const GET: RequestHandler = async () => {
@@ -27,9 +28,9 @@ function render(routes: IRoute[]) {
 }
 
 async function getCollectionRoutes() {
-	const { data, error } = await supabase.from('art_collection').select('slug');
-	if (!data) throw Error(error.message);
-	const routes = data.map(({ slug }: { slug: string }) => {
+	const { data, error }: TCollectionResponse = await supabase.from('art_collection').select('slug');
+	if (!data) throw Error(error?.message);
+	const routes = data.map(({ slug }) => {
 		let date = new Date(Date.now());
 		let year = date.getFullYear();
 		let month = date.getMonth() + 1;
@@ -73,4 +74,9 @@ interface IRoute {
 	loc: string;
 	lastmod: string;
 	changefreq: string;
+}
+
+interface TCollectionResponse {
+	data: { slug: string }[] | null;
+	error: PostgrestError | null;
 }
