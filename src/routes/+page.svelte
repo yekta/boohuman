@@ -25,7 +25,10 @@
 		<br />
 		human curated
 		<br />
-		<div class="text-7xl md:text-8xl text-c-bg p-gradient-135 inline-block px-4 mt-4">art</div>
+		<div class="text-7xl md:text-8xl text-c-bg inline-block px-4 mt-4 relative overflow-hidden">
+			<div class="absolute -left-1/2 -top-1/2 p-gradient-animation" />
+			<p class="relative">art</p>
+		</div>
 	</h1>
 	<CollectionsSection {collections} />
 </div>

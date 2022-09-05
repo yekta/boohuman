@@ -20,7 +20,8 @@ const config = {
 			enabled: true,
 			concurrency: 10,
 			entries: await getRoutes()
-		}
+		},
+		inlineStyleThreshold: 60 * 1024
 	}
 };
 
