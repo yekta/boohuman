@@ -1,10 +1,11 @@
 <script lang="ts">
 	import { activeEntry } from '$ts/stores/activeEntry';
 	import { receive, send } from '$ts/animation/transitions';
-	import type { TDBCollectionEntry } from '$ts/types/db';
+	import type { TDBCollectionEntry, TDBCollectionShallow } from '$ts/types/db';
 	import { isTouchscreen } from '$ts/stores/isTouchscreen';
 
 	export let entry: TDBCollectionEntry;
+	export let collection: TDBCollectionShallow;
 
 	function setActiveEntry(entry: TDBCollectionEntry) {
 		activeEntry.set(entry);
@@ -29,11 +30,23 @@
 		const img = new Image();
 		img.src = url;
 	}
+
+	const onClick = () => {
+		setActiveEntry(entry);
+		window.plausible(`Collections | Entry Clicked`, {
+			props: {
+				CollectionId: collection.id,
+				CollectionName: collection.name,
+				EntryId: entry.id,
+				EntryName: entry.name
+			}
+		});
+	};
 </script>
 
 <button
 	on:mouseenter={() => loadImage(entry.imageUrl)}
-	on:click={() => setActiveEntry(entry)}
+	on:click={onClick}
 	class="w-full overflow-hidden group"
 >
 	<div

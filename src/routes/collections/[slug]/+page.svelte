@@ -9,12 +9,14 @@
 	import { canonicalUrl } from '$ts/constants/seo';
 	import { activeEntry } from '$ts/stores/activeEntry';
 	import { isTouchscreen } from '$ts/stores/isTouchscreen';
-	import type { TDBCollection, TDBCollectionEntry } from '$ts/types/db';
+	import type { TDBCollection, TDBCollectionEntry, TDBCollectionShallow } from '$ts/types/db';
 	import { quadOut } from 'svelte/easing';
 	import { fade } from 'svelte/transition';
 
 	export let data: { collection: TDBCollection };
 	const { collection } = data;
+	const { entries, ...rest } = collection;
+	const collectionShallow: TDBCollectionShallow = { ...rest };
 
 	function closeModal() {
 		activeEntry.set(undefined);
@@ -104,7 +106,7 @@
 				class="w-full md:w-1/2 lg:w-1/3 xl:w-1/4 bg-c-bg relative flex flex-col"
 			>
 				{#if $activeEntry?.id !== entry.id}
-					<EntryCard {entry} />
+					<EntryCard {entry} collection={collectionShallow} />
 				{/if}
 			</div>
 		{/each}
