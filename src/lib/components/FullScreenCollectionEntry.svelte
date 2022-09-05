@@ -1,7 +1,6 @@
 <script lang="ts">
 	import BgHoverEffect from '$components/BgHoverEffect.svelte';
 	import IconChevronDown from '$components/icons/IconChevronDown.svelte';
-
 	import { clickoutside } from '$ts/actions/clickoutside';
 	import { expandCollapse, receive, send } from '$ts/animation/transitions';
 	import { isTouchscreen } from '$ts/stores/isTouchscreen';

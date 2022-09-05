@@ -9,8 +9,6 @@
 	import { activeEntry } from '$ts/stores/activeEntry';
 	import { isTouchscreen } from '$ts/stores/isTouchscreen';
 	import type { TDBCollection, TDBCollectionEntry, TDBCollectionShallow } from '$ts/types/db';
-	import { quadOut } from 'svelte/easing';
-	import { fly } from 'svelte/transition';
 
 	export let data: { collection: TDBCollection };
 

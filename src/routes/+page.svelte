@@ -4,8 +4,6 @@
 	import PageWrapper from '$components/PageWrapper.svelte';
 	import { canonicalUrl } from '$ts/constants/seo';
 	import type { TDBCollectionShallow } from '$ts/types/db';
-	import { quadOut } from 'svelte/easing';
-	import { fly } from 'svelte/transition';
 
 	export let data: {
 		collections: TDBCollectionShallow[];

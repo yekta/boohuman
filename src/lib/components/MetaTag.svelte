@@ -1,5 +1,6 @@
 <script lang="ts">
 	import { MetaTags } from 'svelte-meta-tags';
+
 	export let title: string;
 	export let description: string;
 	export let canonical: string;
