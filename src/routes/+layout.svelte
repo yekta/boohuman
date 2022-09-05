@@ -5,8 +5,10 @@
 	import '$css/app.css';
 </script>
 
-<main class="w-full bg-c-bg text-c-on-bg min-h-screen flex flex-col overflow-x-hidden">
+<div class="w-full bg-c-bg text-c-on-bg min-h-screen flex flex-col">
 	<Navbar />
-	<slot />
+	<main class="w-full flex-1 flex flex-col overflow-x-hidden">
+		<slot />
+	</main>
 	<Footer />
-</main>
+</div>
