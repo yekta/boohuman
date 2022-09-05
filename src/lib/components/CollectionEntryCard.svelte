@@ -38,7 +38,7 @@
 				CollectionId: collection.id,
 				CollectionName: collection.name,
 				EntryId: entry.id,
-				EntryName: entry.name
+				EntryName: collection.name + ' | ' + entry.name
 			}
 		});
 	};
