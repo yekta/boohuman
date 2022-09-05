@@ -72,7 +72,7 @@
 				</a>
 			</div>
 			<div class="flex items-center">
-				<p class="text-c-on-bg/60 mr-0.5ch">prompts by:</p>
+				<p class="text-c-on-bg/60 mr-0.5ch">prompts:</p>
 				<a
 					href={collection.owner.url}
 					class="font-bold group relative overflow-hidden transition text-c-on-bg px-1 {$isTouchscreen
