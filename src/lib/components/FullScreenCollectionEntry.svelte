@@ -90,9 +90,7 @@
 					</div>
 					{#if isDescriptionOpen}
 						<div transition:expandCollapse class="w-full">
-							<p
-								class="px-5 md:px-8 pb-5 md:pb-7 -mt-1 md:-mt-2 text-c-on-bg/75 text-sm md:text-base"
-							>
+							<p class="px-5 md:px-8 pb-5 md:pb-7 -mt-1 md:-mt-2 text-c-on-bg text-sm md:text-base">
 								{entry?.prompt.toLowerCase()}
 							</p>
 						</div>
