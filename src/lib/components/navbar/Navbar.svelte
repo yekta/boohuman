@@ -40,7 +40,7 @@
 			/>
 		</a>
 		<div
-			use:clickoutside={closeDropdown}
+			use:clickoutside={{ callback: closeDropdown }}
 			class="self-stretch md:hidden flex flex-col items-end justify-center"
 		>
 			<button

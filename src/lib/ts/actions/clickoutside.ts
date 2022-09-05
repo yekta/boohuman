@@ -1,19 +1,19 @@
-export function clickoutside(node: HTMLElement, callback: () => void) {
+export function clickoutside(node: HTMLElement, { callback }: { callback: () => void }) {
 	let startedFromOutside = false;
 	function onMouseDown(event: Event) {
-		if (node !== event.target && !node.contains(event.target as Node)) {
+		if (isntInside(node, event)) {
 			startedFromOutside = true;
 		}
 	}
 	function onClick(event: Event) {
-		if (node !== event.target && !node.contains(event.target as Node) && startedFromOutside) {
+		if (isntInside(node, event) && startedFromOutside) {
 			callback();
 			startedFromOutside = false;
 		}
 	}
 
 	function onFocus(event: Event) {
-		if (node !== event.target && !node.contains(event.target as Node)) {
+		if (isntInside(node, event)) {
 			callback();
 		}
 	}
@@ -28,4 +28,8 @@ export function clickoutside(node: HTMLElement, callback: () => void) {
 			document.removeEventListener('focus', onFocus, true);
 		}
 	};
+}
+
+function isntInside(node: HTMLElement, event: Event) {
+	return node !== event.target && !node.contains(event.target as Node);
 }
