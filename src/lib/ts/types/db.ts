@@ -27,6 +27,7 @@ export interface TDBCollectionEntry {
 	imageWidth: number;
 	imageHeight: number;
 	order: number;
+	prompt: string;
 }
 
 export interface TDBAiOption {

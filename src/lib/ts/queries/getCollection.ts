@@ -23,7 +23,8 @@ export async function getCollection(slug: string) {
             imageUrl:image_url,
             imageWidth:image_width,
             imageHeight:image_height,
-            order
+            order,
+            prompt
           ),
           aiOption:ai_option (
             name,

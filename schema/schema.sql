@@ -39,6 +39,7 @@ CREATE TABLE "public_user" (
 CREATE TABLE "art_collection_entry" (
     "name" TEXT NOT NULL,
     "description" TEXT NOT NULL,
+    "prompt" TEXT NOT NULL,
     "imageUrl" TEXT NOT NULL,
     "imageWidth" INTEGER NOT NULL,
     "imageHeight" INTEGER NOT NULL,
