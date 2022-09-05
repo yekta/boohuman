@@ -6,3 +6,12 @@ declare namespace App {
 	// interface PageData {}
 	// interface Platform {}
 }
+
+interface PlausibleObj {
+	callback?: function;
+	props?: { [key: string]: string };
+}
+
+interface Window {
+	plausible: (goalName: string, obj?: PlausibleObj) => void;
+}
