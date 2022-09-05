@@ -6,7 +6,7 @@ export const GET: RequestHandler = async () => {
 	const collectionRoutes = await getCollectionRoutes();
 	const allRoutes = [...definedRoutes, ...collectionRoutes];
 	const headers = {
-		'Cache-Control': `max-age=${3600}, s-max-age=${3600}`,
+		'Cache-Control': `public, max-age=${3600}, s-max-age=${3600}`,
 		'Content-Type': 'text/xml'
 	};
 	const body = render(allRoutes);
