@@ -51,7 +51,7 @@
 			use:clickoutside={{ callback: onClickoutside }}
 			in:receive|local={{ key: entry?.id }}
 			out:send|local={{ key: entry?.id }}
-			class="w-full bg-c-bg-secondary relative overflow-hidden"
+			class="w-full h-full bg-c-bg-secondary relative overflow-hidden"
 		>
 			<img
 				class="w-full h-full select-none"
@@ -75,7 +75,9 @@
 							? 'group'
 							: ''} {!$isTouchscreen && !isDescriptionOpen
 							? 'hover:cursor-pointer'
-							: ''} {!$isTouchscreen && shouldHideChevron ? 'opacity-0 hover:opacity-100' : ''}"
+							: ''} {!$isTouchscreen && shouldHideChevron
+							? 'opacity-0 translate-y-4 hover:translate-y-0 hover:opacity-100'
+							: ''}"
 					>
 						<h1
 							class="max-w-full whitespace-nowrap overflow-hidden overflow-ellipsis font-bold 
