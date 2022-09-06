@@ -1,6 +1,6 @@
 <script lang="ts">
 	import BgHoverEffect from '$components/BgHoverEffect.svelte';
-	import { imgproxy, srcFromUrl, srcsetFromUrl } from '$ts/constants/imgproxy';
+	import { srcFromUrl, srcsetFromUrl } from '$ts/constants/imgproxy';
 	import { isTouchscreen } from '$ts/stores/isTouchscreen';
 	import type { TDBCollectionShallow } from '$ts/types/db';
 

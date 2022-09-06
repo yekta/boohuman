@@ -3,7 +3,7 @@
 	import { receive, send } from '$ts/animation/transitions';
 	import type { TDBCollectionEntry, TDBCollectionShallow } from '$ts/types/db';
 	import { isTouchscreen } from '$ts/stores/isTouchscreen';
-	import { imgproxy, srcFromUrl, srcsetFromUrl } from '$ts/constants/imgproxy';
+	import { srcFromUrl, srcsetFromUrl } from '$ts/constants/imgproxy';
 
 	export let entry: TDBCollectionEntry;
 	export let collection: TDBCollectionShallow;
