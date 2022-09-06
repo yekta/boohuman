@@ -34,6 +34,23 @@
 			shouldHideChevron = true;
 		}, 750);
 	};
+
+	let isImageLoaded = false;
+	const sizes =
+		'(min-width: 1280px) 25vw, (min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw';
+	const imageSizes = [512, 768, 1024, 1536, 2048];
+
+	function srcsetFromUrl(url: string | undefined) {
+		if (url === undefined) return '';
+		const { pathname, hostname, protocol } = new URL(url);
+		const prefix = '/boohuman/';
+		const rest = pathname.slice(prefix.length);
+		let srcset = '';
+		imageSizes.forEach((size) => {
+			srcset += `${protocol}//${hostname}${prefix}tr:w-${size}/${rest} ${size}w, `;
+		});
+		return srcset;
+	}
 </script>
 
 <div
@@ -51,10 +68,23 @@
 			use:clickoutside={{ callback: onClickoutside }}
 			in:receive|local={{ key: entry?.id }}
 			out:send|local={{ key: entry?.id }}
-			class="w-full h-full bg-c-bg-secondary relative overflow-hidden"
+			style="width: {entry?.imageWidth}px; height: {entry?.imageWidth}px"
+			class="max-w-full max-h-full bg-c-bg-secondary relative overflow-hidden"
 		>
 			<img
-				class="w-full h-full select-none"
+				class="w-full h-full absolute left-0 top-0 select-none"
+				src={entry?.imageUrl}
+				srcset={srcsetFromUrl(entry?.imageUrl)}
+				{sizes}
+				width={entry?.imageWidth}
+				height={entry?.imageHeight}
+				alt={entry?.name}
+			/>
+			<img
+				on:load={() => (isImageLoaded = true)}
+				class="w-full h-full absolute left-0 top-0 select-none transition {isImageLoaded
+					? 'opacity-100'
+					: 'opacity-0'}"
 				src={entry?.imageUrl}
 				width={entry?.imageWidth}
 				height={entry?.imageHeight}
