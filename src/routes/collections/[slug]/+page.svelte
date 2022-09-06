@@ -31,6 +31,7 @@
 	}
 
 	let innerHeight: number | undefined;
+	let innerWidth: number | undefined;
 </script>
 
 <MetaTag
@@ -44,6 +45,7 @@
 
 <svelte:window
 	bind:innerHeight
+	bind:innerWidth
 	on:keyup={(e) => {
 		if ($activeEntry !== undefined && e.key === 'Escape') closeModal();
 	}}
@@ -125,5 +127,6 @@
 		entry={oldActiveEntry}
 		onClickoutside={closeModal}
 		windowInnerHeight={innerHeight}
+		windowInnerWidth={innerWidth}
 	/>
 {/if}

@@ -47,7 +47,7 @@
 <button
 	on:mouseenter={() => loadImage(entry.imageUrl)}
 	on:click={onClick}
-	class="w-full overflow-hidden group"
+	class="w-full h-full overflow-hidden group absolute left-0 top-0"
 >
 	<div
 		in:receive|local={{ key: entry.id }}
