@@ -12,9 +12,9 @@
 
 <Button href={previousPage ?? '/'}>
 	<IconArrowDown
-		class="w-5 h-5 mr-2 relative transform rotate-90 transition {$isTouchscreen
-			? 'group-active:-translate-x-1'
-			: 'group-hover:-translate-x-1'}"
+		class="w-5 h-5 mr-2 relative transform rotate-90 transition text-c-on-bg {$isTouchscreen
+			? 'group-active:-translate-x-1.5 group-hover:text-c-bg'
+			: 'group-hover:-translate-x-1.5 group-hover:text-c-bg'}"
 		slot="icon"
 	/>
 	go back
