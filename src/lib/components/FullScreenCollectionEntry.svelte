@@ -117,9 +117,9 @@
 							class="w-full px-5 md:px-8 py-4 md:py-6 flex items-center justify-between transition bg-c-bg/0 {!isDescriptionOpen
 								? 'group'
 								: ''} {!$isTouchscreen && !isDescriptionOpen
-								? 'hover:cursor-pointer'
+								? 'hover:cursor-pointer hover:bg-c-bg/20'
 								: ''} {!$isTouchscreen && shouldHideChevron
-								? 'opacity-0 translate-y-4 hover:bg-c-bg/20 hover:translate-y-0 hover:opacity-100'
+								? 'opacity-0 translate-y-4 hover:translate-y-0 hover:opacity-100'
 								: ''}"
 						>
 							<h1
