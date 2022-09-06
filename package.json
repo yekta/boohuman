@@ -15,7 +15,6 @@
 		"@sveltejs/adapter-auto": "next",
 		"@sveltejs/kit": "next",
 		"autoprefixer": "^10.4.8",
-		"buffer": "^6.0.3",
 		"dotenv": "^16.0.2",
 		"postcss": "^8.4.16",
 		"prettier": "^2.6.2",
@@ -31,7 +30,6 @@
 	},
 	"type": "module",
 	"dependencies": {
-		"@supabase/supabase-js": "^1.35.6",
-		"imgproxy": "^1.0.0"
+		"@supabase/supabase-js": "^1.35.6"
 	}
 }
