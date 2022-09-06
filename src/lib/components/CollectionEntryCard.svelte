@@ -15,7 +15,7 @@
 		'(min-width: 1280px) 25vw, (min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw';
 
 	const imageSizes = [512, 768, 1024, 1536, 2048];
-	function srcSetFromUrl(url: string) {
+	function srcsetFromUrl(url: string) {
 		const { pathname, hostname, protocol } = new URL(url);
 		const prefix = '/boohuman/';
 		const rest = pathname.slice(prefix.length);
@@ -59,7 +59,7 @@
 				? 'group-active:scale-102'
 				: 'group-hover:scale-102'}"
 			src={entry.imageUrl}
-			srcset={srcSetFromUrl(entry.imageUrl)}
+			srcset={srcsetFromUrl(entry.imageUrl)}
 			{sizes}
 			width={entry.imageWidth}
 			height={entry.imageHeight}
