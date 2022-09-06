@@ -3,6 +3,7 @@
 	import IconChevronDown from '$components/icons/IconChevronDown.svelte';
 	import { clickoutside } from '$ts/actions/clickoutside';
 	import { expandCollapse, receive, send } from '$ts/animation/transitions';
+	import { srcFromUrl, srcsetFromUrl } from '$ts/constants/imgproxy';
 	import { containImage } from '$ts/helpers/containImage';
 	import { isTouchscreen } from '$ts/stores/isTouchscreen';
 	import type { TDBCollectionEntry } from '$ts/types/db';
@@ -43,18 +44,6 @@
 		'(min-width: 1280px) 25vw, (min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw';
 	const imageSizes = [512, 768, 1024, 1536, 2048];
 
-	function srcsetFromUrl(url: string | undefined) {
-		if (url === undefined) return '';
-		const { pathname, hostname, protocol } = new URL(url);
-		const prefix = '/boohuman/';
-		const rest = pathname.slice(prefix.length);
-		let srcset = '';
-		imageSizes.forEach((size) => {
-			srcset += `${protocol}//${hostname}${prefix}tr:w-${size}/${rest} ${size}w, `;
-		});
-		return srcset;
-	}
-
 	$: imageContainerDimensions = containImage(
 		entry?.imageWidth || 0,
 		entry?.imageHeight || 1,
@@ -86,8 +75,8 @@
 			<div class="w-full h-full overflow-hidden relative z-0">
 				<img
 					class="w-full h-full absolute left-0 top-0 select-none"
-					src={entry?.imageUrl}
-					srcset={srcsetFromUrl(entry?.imageUrl)}
+					src={srcFromUrl(entry?.imageUrl || '')}
+					srcset={srcsetFromUrl(entry?.imageUrl || '', imageSizes)}
 					{sizes}
 					width={entry?.imageWidth}
 					height={entry?.imageHeight}
@@ -98,7 +87,7 @@
 					class="w-full h-full absolute left-0 top-0 select-none transition {isImageLoaded
 						? 'opacity-100'
 						: 'opacity-0'}"
-					src={entry?.imageUrl}
+					src={srcFromUrl(entry?.imageUrl || '')}
 					width={entry?.imageWidth}
 					height={entry?.imageHeight}
 					alt={entry?.name}

@@ -5,6 +5,7 @@
 	import FullScreenCollectionEntry from '$components/FullScreenCollectionEntry.svelte';
 	import MetaTag from '$components/MetaTag.svelte';
 	import PageWrapper from '$components/PageWrapper.svelte';
+	import { srcFromUrl } from '$ts/constants/imgproxy';
 	import { canonicalUrl } from '$ts/constants/seo';
 	import { activeEntry } from '$ts/stores/activeEntry';
 	import { isTouchscreen } from '$ts/stores/isTouchscreen';
@@ -37,7 +38,7 @@
 <MetaTag
 	title="{collection.name.toLowerCase()} | collections"
 	description={collection.description.toLowerCase()}
-	imageUrl={collection.previewImageUrl}
+	imageUrl={srcFromUrl(collection.previewImageUrl)}
 	imageWidth={collection.previewImageWidth}
 	imageHeight={collection.previewImageHeight}
 	canonical="{canonicalUrl}/collections/{collection.slug}"

@@ -3,6 +3,7 @@
 	import { receive, send } from '$ts/animation/transitions';
 	import type { TDBCollectionEntry, TDBCollectionShallow } from '$ts/types/db';
 	import { isTouchscreen } from '$ts/stores/isTouchscreen';
+	import { imgproxy, srcFromUrl, srcsetFromUrl } from '$ts/constants/imgproxy';
 
 	export let entry: TDBCollectionEntry;
 	export let collection: TDBCollectionShallow;
@@ -13,22 +14,11 @@
 
 	const sizes =
 		'(min-width: 1280px) 25vw, (min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw';
-
 	const imageSizes = [512, 768, 1024, 1536, 2048];
-	function srcsetFromUrl(url: string) {
-		const { pathname, hostname, protocol } = new URL(url);
-		const prefix = '/boohuman/';
-		const rest = pathname.slice(prefix.length);
-		let srcset = '';
-		imageSizes.forEach((size) => {
-			srcset += `${protocol}//${hostname}${prefix}tr:w-${size}/${rest} ${size}w, `;
-		});
-		return srcset;
-	}
 
 	function loadImage(url: string) {
 		const img = new Image();
-		img.src = url;
+		img.src = srcFromUrl(url);
 	}
 
 	const onClick = () => {
@@ -58,8 +48,8 @@
 			class="select-none transition duration-300 origin-bottom {$isTouchscreen
 				? 'group-active:scale-102'
 				: 'group-hover:scale-102'}"
-			src={entry.imageUrl}
-			srcset={srcsetFromUrl(entry.imageUrl)}
+			src={srcFromUrl(entry.imageUrl)}
+			srcset={srcsetFromUrl(entry.imageUrl, imageSizes)}
 			{sizes}
 			width={entry.imageWidth}
 			height={entry.imageHeight}

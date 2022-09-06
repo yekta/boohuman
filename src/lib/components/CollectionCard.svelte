@@ -1,5 +1,6 @@
 <script lang="ts">
 	import BgHoverEffect from '$components/BgHoverEffect.svelte';
+	import { imgproxy, srcFromUrl, srcsetFromUrl } from '$ts/constants/imgproxy';
 	import { isTouchscreen } from '$ts/stores/isTouchscreen';
 	import type { TDBCollectionShallow } from '$ts/types/db';
 
@@ -9,18 +10,7 @@
 	let classes = '';
 
 	const sizes = '(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw';
-
 	const imageSizes = [512, 768, 1024, 1536, 2048];
-	function srcSetFromUrl(url: string) {
-		const { pathname, hostname, protocol } = new URL(url);
-		const prefix = '/boohuman/';
-		const rest = pathname.slice(prefix.length);
-		let srcset = '';
-		imageSizes.forEach((size) => {
-			srcset += `${protocol}//${hostname}${prefix}tr:w-${size}/${rest} ${size}w, `;
-		});
-		return srcset;
-	}
 </script>
 
 <a
@@ -56,8 +46,8 @@
 					<div class="w-full bg-c-bg-secondary">
 						<img
 							class="w-full h-auto relative"
-							src={collection.imageUrl}
-							srcset={srcSetFromUrl(collection.imageUrl)}
+							src={srcFromUrl(collection.imageUrl)}
+							srcset={srcsetFromUrl(collection.imageUrl, imageSizes)}
 							{sizes}
 							width={collection.imageWidth}
 							height={collection.imageHeight}
