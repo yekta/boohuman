@@ -62,12 +62,12 @@
 		<div class="h-2px md:w-2px md:h-auto self-stretch mt-7 md:mx-12 md:my-0 px-5 md:px-0">
 			<div class="hidden md:block p-gradient-180 w-full h-full" />
 		</div>
-		<div class="font-light flex flex-col md:py-2 gap-1.5 text-lg">
+		<div class="font-light flex flex-col md:py-2 text-lg">
 			<div class="flex items-center">
-				<p class="mr-0.5ch text-c-on-bg/60">ai:</p>
+				<p class="text-c-on-bg/60 mr-0.5ch py-0.75">ai:</p>
 				<a
 					href={collection.aiOption.url}
-					class="font-bold group relative overflow-hidden transition text-c-on-bg px-1 {$isTouchscreen
+					class="font-bold group relative overflow-hidden transition text-c-on-bg px-2.5 py-0.75 -mx-0.5 underline {$isTouchscreen
 						? 'active:text-c-bg'
 						: 'hover:text-c-bg'}"
 					target="_blank"
@@ -77,10 +77,10 @@
 				</a>
 			</div>
 			<div class="flex items-center">
-				<p class="text-c-on-bg/60 mr-0.5ch">prompts:</p>
+				<p class="text-c-on-bg/60 mr-0.5ch py-0.75">prompts:</p>
 				<a
 					href={collection.owner.url}
-					class="font-bold group relative overflow-hidden transition text-c-on-bg px-1 {$isTouchscreen
+					class="font-bold group relative overflow-hidden transition text-c-on-bg px-2.5 py-0.75 -mx-0.5 underline {$isTouchscreen
 						? 'active:text-c-bg'
 						: 'hover:text-c-bg'}"
 					target="_blank"
@@ -90,14 +90,14 @@
 				</a>
 			</div>
 			<div class="flex items-center">
-				<p class="text-c-on-bg/60 mr-0.5ch">gpu time:</p>
-				<p class="font-bold text-c-on-bg">
+				<p class="text-c-on-bg/60 mr-0.5ch py-0.75">gpu time:</p>
+				<p class="font-bold text-c-on-bg px-2.5 py-0.75 -mx-0.5">
 					{collection.gpuTimeHours.toString().toLowerCase()} hours
 				</p>
 			</div>
 			<div class="flex items-center">
-				<p class="text-c-on-bg/60 mr-0.5ch">total generations:</p>
-				<p class="font-bold text-c-on-bg">
+				<p class="text-c-on-bg/60 mr-0.5ch py-0.75">total generations:</p>
+				<p class="font-bold text-c-on-bg px-2.5 py-0.75 -mx-0.5">
 					{collection.totalGenerations.toString().toLowerCase()}
 				</p>
 			</div>

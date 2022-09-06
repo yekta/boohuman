@@ -52,7 +52,8 @@ module.exports = {
 				'2px': '2px',
 				'0.5ch': '0.5ch',
 				'1ch': '1ch',
-				'2ch': '2ch'
+				'2ch': '2ch',
+				0.75: '0.1875rem'
 			},
 			fontSize: {
 				'9xl': '7rem',
