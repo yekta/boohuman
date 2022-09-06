@@ -56,11 +56,11 @@
 
 <div
 	transition:fade|local={{ duration: 300, easing: quadOut }}
-	class="fixed flex flex-col items-center justify-center left-0 top-0 w-full h-screen z-40 bg-c-bg/90"
+	class="fixed flex flex-col items-center justify-center left-0 top-0 w-screen h-screen z-40 bg-c-bg/90"
 	style={windowInnerHeight !== undefined ? `height: ${windowInnerHeight}px` : ''}
 />
 <div
-	class="fixed flex flex-col md:flex-row items-center justify-center left-0 top-0 w-full h-screen z-50 p-6 md:p-8 overflow-y-scroll"
+	class="fixed flex flex-col md:flex-row items-center justify-center left-0 top-0 w-screen h-screen z-50 p-6 md:p-8 overflow-y-scroll"
 	style={windowInnerHeight !== undefined ? `height: ${windowInnerHeight}px` : ''}
 >
 	<div
