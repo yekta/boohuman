@@ -41,7 +41,7 @@
 	class="fixed flex flex-col items-center justify-center left-0 top-0 w-screen h-screen z-40 bg-c-bg/90"
 />
 <div
-	class="fixed flex flex-col md:flex-row items-center justify-center left-0 top-0 w-screen h-screen z-50 p-5 md:p-8 overflow-y-scroll"
+	class="fixed flex flex-col md:flex-row items-center justify-center left-0 top-0 w-screen h-screen z-50 p-6 md:p-8 overflow-y-scroll"
 >
 	<div
 		style="aspect-ratio: {(entry?.imageWidth || 0) / (entry?.imageHeight || 1)};"
@@ -76,7 +76,7 @@
 							: ''} {!$isTouchscreen && !isDescriptionOpen
 							? 'hover:cursor-pointer'
 							: ''} {!$isTouchscreen && shouldHideChevron
-							? 'opacity-0 translate-y-4 hover:bg-c-bg/30 hover:translate-y-0 hover:opacity-100'
+							? 'opacity-0 translate-y-4 hover:bg-c-bg/20 hover:translate-y-0 hover:opacity-100'
 							: ''}"
 					>
 						<h1
