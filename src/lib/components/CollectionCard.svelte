@@ -23,15 +23,19 @@
 	}
 </script>
 
-<div class="w-full md:w-1/2 lg:w-1/3 p-2.5 {classes}">
-	<div class="relative group">
+<a
+	data-sveltekit-prefetch
+	href="/collections/{collection.slug}"
+	class="w-full md:w-1/2 lg:w-1/3 p-2.5 group {classes}"
+>
+	<div class="w-full relative">
 		<div
 			class="w-full h-full absolute left-0 top-0 transition transform 
 				p-gradient-135 {$isTouchscreen
 				? 'group-active:-translate-x-2 group-active:translate-y-2'
 				: 'group-hover:-translate-x-2 group-hover:translate-y-2'}"
 		/>
-		<a data-sveltekit-prefetch href="/collections/{collection.slug}" class="w-full relative">
+		<div class="w-full relative">
 			<div class="w-full p-2px relative">
 				<div class="w-full bg-c-bg relative">
 					<div
@@ -62,6 +66,6 @@
 					</div>
 				</div>
 			</div>
-		</a>
+		</div>
 	</div>
-</div>
+</a>
