@@ -29,6 +29,8 @@
 			oldActiveEntry = $activeEntry;
 		}
 	}
+
+	let innerHeight: number | undefined;
 </script>
 
 <MetaTag
@@ -41,6 +43,7 @@
 />
 
 <svelte:window
+	bind:innerHeight
 	on:keyup={(e) => {
 		if ($activeEntry !== undefined && e.key === 'Escape') closeModal();
 	}}
@@ -118,5 +121,9 @@
 </PageWrapper>
 
 {#if $activeEntry !== undefined}
-	<FullScreenCollectionEntry entry={oldActiveEntry} onClickoutside={closeModal} />
+	<FullScreenCollectionEntry
+		entry={oldActiveEntry}
+		onClickoutside={closeModal}
+		windowInnerHeight={innerHeight}
+	/>
 {/if}
