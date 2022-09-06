@@ -10,7 +10,6 @@
 	let classes = '';
 
 	const sizes = '(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw';
-	const imageSizes = [512, 768, 1024, 1536, 2048];
 </script>
 
 <a
@@ -47,7 +46,7 @@
 						<img
 							class="w-full h-auto relative"
 							src={srcFromUrl(collection.imageUrl)}
-							srcset={srcsetFromUrl(collection.imageUrl, imageSizes)}
+							srcset={srcsetFromUrl(collection.imageUrl)}
 							{sizes}
 							width={collection.imageWidth}
 							height={collection.imageHeight}

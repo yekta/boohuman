@@ -14,7 +14,6 @@
 
 	const sizes =
 		'(min-width: 1280px) 25vw, (min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw';
-	const imageSizes = [512, 768, 1024, 1536, 2048];
 
 	function loadImage(url: string) {
 		const img = new Image();
@@ -49,7 +48,7 @@
 				? 'group-active:scale-102'
 				: 'group-hover:scale-102'}"
 			src={srcFromUrl(entry.imageUrl)}
-			srcset={srcsetFromUrl(entry.imageUrl, imageSizes)}
+			srcset={srcsetFromUrl(entry.imageUrl)}
 			{sizes}
 			width={entry.imageWidth}
 			height={entry.imageHeight}
