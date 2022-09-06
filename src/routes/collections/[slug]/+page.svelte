@@ -52,7 +52,7 @@
 			<h1 class="text-4xl font-bold text-center md:text-right max-w-md px-5 md:px-0">
 				{collection.name.toLowerCase()}
 			</h1>
-			<div class="block md:hidden p-gradient-90 h-2px self-stretch mt-7" />
+			<div class="block md:hidden p-gradient-270 h-2px self-stretch mt-6" />
 		</div>
 		<div class="h-2px md:w-2px md:h-auto self-stretch mt-7 md:mx-12 md:my-0 px-5 md:px-0">
 			<div class="hidden md:block p-gradient-180 w-full h-full" />
