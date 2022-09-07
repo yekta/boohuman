@@ -18,7 +18,6 @@
 	canonical={canonicalUrl}
 />
 
-<!--  -->
 <PageWrapper>
 	<div class="flex-1 flex flex-col items-center justify-center relative">
 		<h1
