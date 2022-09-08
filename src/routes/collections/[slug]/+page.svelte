@@ -64,41 +64,41 @@
 			<div class="hidden md:block p-gradient-180 w-full h-full" />
 		</div>
 		<div class="font-light flex flex-col md:py-2 text-lg">
-			<div class="flex items-center">
-				<p class="text-c-on-bg/60 mr-0.5ch py-0.75">ai:</p>
+			<div class="flex items-center py-0.5">
+				<p class="text-c-on-bg/60 mr-0.5ch py-0.5">ai:</p>
 				<a
 					href={collection.aiOption.url}
-					class="font-bold group relative overflow-hidden transition text-c-on-bg px-2.5 py-0.75 -mx-0.5 underline {$isTouchscreen
+					class="font-bold group relative overflow-hidden transition text-c-on-bg px-2 py-0.5 {$isTouchscreen
 						? 'active:text-c-bg'
 						: 'hover:text-c-bg'}"
 					target="_blank"
 				>
-					<BgHoverEffect />
+					<BgHoverEffect underline />
 					<p class="relative">{collection.aiOption.name.toLowerCase()}</p>
 				</a>
 			</div>
-			<div class="flex items-center">
-				<p class="text-c-on-bg/60 mr-0.5ch py-0.75">prompts:</p>
+			<div class="flex items-center py-0.5">
+				<p class="text-c-on-bg/60 mr-0.5ch py-0.5">prompts:</p>
 				<a
 					href={collection.owner.url}
-					class="font-bold group relative overflow-hidden transition text-c-on-bg px-2.5 py-0.75 -mx-0.5 underline {$isTouchscreen
+					class="font-bold group relative overflow-hidden transition text-c-on-bg px-2 py-0.5 {$isTouchscreen
 						? 'active:text-c-bg'
 						: 'hover:text-c-bg'}"
 					target="_blank"
 				>
-					<BgHoverEffect />
+					<BgHoverEffect underline />
 					<p class="relative">{collection.owner.name.toLowerCase()}</p>
 				</a>
 			</div>
-			<div class="flex items-center">
-				<p class="text-c-on-bg/60 mr-0.5ch py-0.75">gpu time:</p>
-				<p class="font-bold text-c-on-bg px-2.5 py-0.75 -mx-0.5">
+			<div class="flex items-center py-0.5">
+				<p class="text-c-on-bg/60 mr-0.5ch py-0.5">gpu time:</p>
+				<p class="font-bold text-c-on-bg px-2 py-0.5">
 					{collection.gpuTimeHours.toString().toLowerCase()} hours
 				</p>
 			</div>
-			<div class="flex items-center">
-				<p class="text-c-on-bg/60 mr-0.5ch py-0.75">total generations:</p>
-				<p class="font-bold text-c-on-bg px-2.5 py-0.75 -mx-0.5">
+			<div class="flex items-center py-0.5">
+				<p class="text-c-on-bg/60 mr-0.5ch py-0.5">total generations:</p>
+				<p class="font-bold text-c-on-bg px-2 py-0.5">
 					{collection.totalGenerations.toString().toLowerCase()}
 				</p>
 			</div>
