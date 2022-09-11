@@ -10,11 +10,16 @@
 	import { activeEntry } from '$ts/stores/activeEntry';
 	import { isTouchscreen } from '$ts/stores/isTouchscreen';
 	import type { TDBCollection, TDBCollectionEntry, TDBCollectionShallow } from '$ts/types/db';
+	import type { TCollectionEntryObject } from '$ts/types/main';
 
 	export let data: { collection: TDBCollection };
 
 	const { collection } = data;
 	const { entries, ...rest } = collection;
+	const entryObjects: TCollectionEntryObject[] = entries.map((entry) => ({
+		...entry,
+		isLoadedBefore: false
+	}));
 	const collectionShallow: TDBCollectionShallow = { ...rest };
 
 	function closeModal() {
@@ -106,13 +111,13 @@
 	</div>
 	<!-- Entries -->
 	<div class="w-full flex flex-wrap justify-center z-0 relative">
-		{#each collection.entries.sort((a, b) => a.order - b.order) as entry (entry.id)}
+		{#each entryObjects.sort((a, b) => a.order - b.order) as entry, index (entry.id)}
 			<div
 				style="aspect-ratio: {entry.imageWidth / entry.imageHeight};"
 				class="w-full md:w-1/2 lg:w-1/3 xl:w-1/4 bg-c-bg relative flex flex-col"
 			>
 				{#if $activeEntry?.id !== entry.id}
-					<EntryCard {entry} collection={collectionShallow} />
+					<EntryCard bind:entry collection={collectionShallow} />
 				{/if}
 			</div>
 		{/each}

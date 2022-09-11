@@ -4,9 +4,16 @@
 	import type { TDBCollectionEntry, TDBCollectionShallow } from '$ts/types/db';
 	import { isTouchscreen } from '$ts/stores/isTouchscreen';
 	import { srcFromUrl, srcsetFromUrl } from '$ts/constants/imgproxy';
+	import type { TCollectionEntryObject } from '$ts/types/main';
 
-	export let entry: TDBCollectionEntry;
+	export let entry: TCollectionEntryObject;
 	export let collection: TDBCollectionShallow;
+
+	let image: HTMLImageElement | undefined;
+
+	$: if (image !== undefined && (image?.naturalWidth > 0 || image?.naturalHeight > 0)) {
+		entry.isLoadedBefore = true;
+	}
 
 	function setActiveEntry(entry: TDBCollectionEntry) {
 		activeEntry.set(entry);
@@ -44,11 +51,27 @@
 		class="bg-c-bg-secondary"
 	>
 		<img
-			class="select-none transition duration-300 origin-bottom {$isTouchscreen
+			class="select-none transition duration-400 origin-bottom transform {$isTouchscreen
 				? 'group-active:scale-102'
-				: 'group-hover:scale-102'}"
+				: 'group-hover:scale-102'} filter blur-lg"
+			src={entry.imagePlaceholderBase64}
+			{sizes}
+			width={entry.imageWidth}
+			height={entry.imageHeight}
+			alt={entry.name}
+		/>
+		<img
+			bind:this={image}
+			class="select-none origin-bottom absolute left-0 top-0 filter transition duration-400 {$isTouchscreen
+				? 'group-active:scale-102'
+				: 'group-hover:scale-102'} {entry.isLoadedBefore
+				? 'opacity-100 blur-none'
+				: 'opacity-0 blur-lg'}"
 			src={srcFromUrl(entry.imageUrl)}
 			srcset={srcsetFromUrl(entry.imageUrl)}
+			on:load={() => {
+				entry.isLoadedBefore = true;
+			}}
 			{sizes}
 			width={entry.imageWidth}
 			height={entry.imageHeight}

@@ -23,6 +23,7 @@ export async function getCollection(slug: string) {
             imageUrl:image_url,
             imageWidth:image_width,
             imageHeight:image_height,
+            imagePlaceholderBase64:image_placeholder_base64,
             order,
             prompt
           ),

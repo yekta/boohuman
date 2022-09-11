@@ -26,6 +26,7 @@ export interface TDBCollectionEntry {
 	imageUrl: string;
 	imageWidth: number;
 	imageHeight: number;
+	imagePlaceholderBase64: string;
 	order: number;
 	prompt: string;
 }

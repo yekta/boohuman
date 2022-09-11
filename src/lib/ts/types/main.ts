@@ -1,3 +1,5 @@
+import type { TDBCollectionEntry } from '$ts/types/db';
+
 export interface TNavbarOption {
 	name: string;
 	href: string;
@@ -33,4 +35,8 @@ export interface TCollectionEntry {
 export interface TUser {
 	name: string;
 	url: string;
+}
+
+export interface TCollectionEntryObject extends TDBCollectionEntry {
+	isLoadedBefore: boolean;
 }
