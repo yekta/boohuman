@@ -15,6 +15,12 @@
 		entry.isLoadedBefore = true;
 	}
 
+	$: if (entry.isLoadedBefore && !entry.shouldTransitionFaster) {
+		setTimeout(() => {
+			entry.shouldTransitionFaster = true;
+		}, 600);
+	}
+
 	function setActiveEntry(entry: TDBCollectionEntry) {
 		activeEntry.set(entry);
 	}
@@ -51,9 +57,9 @@
 		class="bg-c-bg-secondary"
 	>
 		<img
-			class="select-none transition duration-400 origin-bottom transform {$isTouchscreen
-				? 'group-active:scale-102'
-				: 'group-hover:scale-102'} filter blur-lg"
+			class="select-none origin-bottom transform filter blur-md transition {entry.shouldTransitionFaster
+				? 'duration-300'
+				: 'duration-500'} {$isTouchscreen ? 'group-active:scale-102' : 'group-hover:scale-102'}"
 			src={entry.imagePlaceholderBase64}
 			{sizes}
 			width={entry.imageWidth}
@@ -62,11 +68,13 @@
 		/>
 		<img
 			bind:this={image}
-			class="select-none origin-bottom absolute left-0 top-0 filter transition duration-400 {$isTouchscreen
+			class="select-none origin-bottom transform absolute left-0 top-0 filter transition {entry.shouldTransitionFaster
+				? 'duration-300'
+				: 'duration-500'} {$isTouchscreen
 				? 'group-active:scale-102'
 				: 'group-hover:scale-102'} {entry.isLoadedBefore
 				? 'opacity-100 blur-none'
-				: 'opacity-0 blur-lg'}"
+				: 'opacity-0 blur-md'}"
 			src={srcFromUrl(entry.imageUrl)}
 			srcset={srcsetFromUrl(entry.imageUrl)}
 			on:load={() => {
