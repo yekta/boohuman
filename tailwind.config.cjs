@@ -13,6 +13,7 @@ module.exports = {
 	theme: {
 		transitionDuration: {
 			DEFAULT: '200ms',
+			0: '0ms',
 			150: '150ms',
 			200: '200ms',
 			250: '250ms',

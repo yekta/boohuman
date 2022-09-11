@@ -54,23 +54,22 @@
 	<div
 		in:receive|local={{ key: entry.id }}
 		out:send|local={{ key: entry.id }}
-		class="bg-c-bg-secondary"
+		class="w-full h-full bg-c-bg-secondary relative"
 	>
 		<img
-			class="select-none origin-bottom transform transition filter {entry.shouldTransitionFaster
-				? 'duration-300 blur-none'
+			class="w-full h-full select-none origin-bottom transform filter transition {entry.shouldTransitionFaster
+				? 'duration-300 blur-none opacity-0'
 				: 'duration-500 blur-md'} {$isTouchscreen
 				? 'group-active:scale-102'
 				: 'group-hover:scale-102'}"
 			src={entry.imagePlaceholderBase64}
-			{sizes}
 			width={entry.imageWidth}
 			height={entry.imageHeight}
 			alt={entry.name}
 		/>
 		<img
 			bind:this={image}
-			class="select-none origin-bottom transform absolute left-0 top-0 filter transition {entry.shouldTransitionFaster
+			class="w-full h-full select-none origin-bottom transform absolute left-0 top-0 filter transition {entry.shouldTransitionFaster
 				? 'duration-300'
 				: 'duration-500'} {$isTouchscreen
 				? 'group-active:scale-102'
