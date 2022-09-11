@@ -57,9 +57,11 @@
 		class="bg-c-bg-secondary"
 	>
 		<img
-			class="select-none origin-bottom transform filter blur-md transition {entry.shouldTransitionFaster
-				? 'duration-300'
-				: 'duration-500'} {$isTouchscreen ? 'group-active:scale-102' : 'group-hover:scale-102'}"
+			class="select-none origin-bottom transform transition filter {entry.shouldTransitionFaster
+				? 'duration-300 blur-none'
+				: 'duration-500 blur-md'} {$isTouchscreen
+				? 'group-active:scale-102'
+				: 'group-hover:scale-102'}"
 			src={entry.imagePlaceholderBase64}
 			{sizes}
 			width={entry.imageWidth}
