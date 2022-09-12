@@ -59,7 +59,7 @@
 		<img
 			class="w-full h-full select-none origin-bottom transform filter transition {entry.shouldTransitionFaster
 				? 'duration-300 blur-none opacity-0'
-				: 'duration-500 blur-md'} {$isTouchscreen
+				: 'duration-500 blur-lg'} {$isTouchscreen
 				? 'group-active:scale-102'
 				: 'group-hover:scale-102'}"
 			src={entry.imagePlaceholderBase64}
@@ -75,7 +75,7 @@
 				? 'group-active:scale-102'
 				: 'group-hover:scale-102'} {entry.isLoadedBefore
 				? 'opacity-100 blur-none'
-				: 'opacity-0 blur-md'}"
+				: 'opacity-0 blur-lg'}"
 			src={srcFromUrl(entry.imageUrl)}
 			srcset={srcsetFromUrl(entry.imageUrl)}
 			on:load={() => {
