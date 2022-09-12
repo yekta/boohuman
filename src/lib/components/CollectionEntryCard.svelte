@@ -2,24 +2,12 @@
 	import { activeEntry } from '$ts/stores/activeEntry';
 	import { receive, send } from '$ts/animation/transitions';
 	import type { TDBCollectionEntry, TDBCollectionShallow } from '$ts/types/db';
-	import { isTouchscreen } from '$ts/stores/isTouchscreen';
-	import { srcFromUrl, srcsetFromUrl } from '$ts/constants/imgproxy';
+	import { srcFromUrl } from '$ts/constants/imgproxy';
 	import type { TCollectionEntryObject } from '$ts/types/main';
+	import ImageP from '$components/ImageP.svelte';
 
 	export let entry: TCollectionEntryObject;
 	export let collection: TDBCollectionShallow;
-
-	let image: HTMLImageElement | undefined;
-
-	$: if (image !== undefined && (image?.naturalWidth > 0 || image?.naturalHeight > 0)) {
-		entry.isLoadedBefore = true;
-	}
-
-	$: if (entry.isLoadedBefore && !entry.shouldTransitionFaster) {
-		setTimeout(() => {
-			entry.shouldTransitionFaster = true;
-		}, 600);
-	}
 
 	function setActiveEntry(entry: TDBCollectionEntry) {
 		activeEntry.set(entry);
@@ -56,35 +44,15 @@
 		out:send|local={{ key: entry.id }}
 		class="w-full h-full bg-c-bg-secondary relative"
 	>
-		<img
-			class="w-full h-full select-none origin-bottom transform filter transition {entry.shouldTransitionFaster
-				? 'duration-300 blur-none opacity-0'
-				: 'duration-500 blur-md'} {$isTouchscreen
-				? 'group-active:scale-102'
-				: 'group-hover:scale-102'}"
-			src={entry.imagePlaceholderBase64}
+		<ImageP
+			bind:loaded={entry.isLoadedBefore}
+			bind:transitioned={entry.shouldTransitionFaster}
+			src={entry.imageUrl}
 			width={entry.imageWidth}
 			height={entry.imageHeight}
 			alt={entry.name}
-		/>
-		<img
-			bind:this={image}
-			class="w-full h-full select-none origin-bottom transform absolute left-0 top-0 filter transition {entry.shouldTransitionFaster
-				? 'duration-300'
-				: 'duration-500'} {$isTouchscreen
-				? 'group-active:scale-102'
-				: 'group-hover:scale-102'} {entry.isLoadedBefore
-				? 'opacity-100 blur-none'
-				: 'opacity-0 blur-md'}"
-			src={srcFromUrl(entry.imageUrl)}
-			srcset={srcsetFromUrl(entry.imageUrl)}
-			on:load={() => {
-				entry.isLoadedBefore = true;
-			}}
 			{sizes}
-			width={entry.imageWidth}
-			height={entry.imageHeight}
-			alt={entry.name}
+			srcPlaceholder={entry.imagePlaceholderBase64}
 		/>
 	</div>
 </button>
