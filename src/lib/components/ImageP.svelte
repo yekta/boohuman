@@ -15,7 +15,13 @@
 	$: [image], setLoaded();
 
 	function setLoaded() {
-		if (!loaded && image !== undefined && (image?.naturalWidth > 0 || image?.naturalHeight > 0)) {
+		if (
+			!loaded &&
+			image !== undefined &&
+			image.complete &&
+			image?.naturalWidth > 0 &&
+			image?.naturalHeight > 0
+		) {
 			loaded = true;
 		}
 	}
