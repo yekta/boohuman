@@ -19,8 +19,8 @@
 			!loaded &&
 			image !== undefined &&
 			image.complete &&
-			image?.naturalWidth > 0 &&
-			image?.naturalHeight > 0
+			image.naturalWidth > 0 &&
+			image.naturalHeight > 0
 		) {
 			loaded = true;
 		}
