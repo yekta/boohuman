@@ -46,7 +46,6 @@
 	>
 		<ImageP
 			bind:loaded={entry.isLoadedBefore}
-			bind:transitioned={entry.shouldTransitionFaster}
 			src={entry.imageUrl}
 			srcPlaceholder={entry.imagePlaceholderBase64}
 			{sizes}

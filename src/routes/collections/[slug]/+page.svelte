@@ -18,8 +18,7 @@
 	const { entries, ...rest } = collection;
 	const entryObjects: TCollectionEntryObject[] = entries.map((entry) => ({
 		...entry,
-		isLoadedBefore: false,
-		shouldTransitionFaster: false
+		isLoadedBefore: false
 	}));
 	const collectionShallow: TDBCollectionShallow = { ...rest };
 

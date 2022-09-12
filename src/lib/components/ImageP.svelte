@@ -9,47 +9,27 @@
 	export let width: number;
 	export let height: number;
 	export let loaded: boolean = false;
-	export let transitioned: boolean = false;
 
 	let image: HTMLImageElement | undefined;
 
 	$: [image], setLoaded();
-	$: [loaded, transitioned], setTransitionedTimeout();
 
 	function setLoaded() {
 		if (!loaded && image !== undefined && (image?.naturalWidth > 0 || image?.naturalHeight > 0)) {
 			loaded = true;
 		}
 	}
-
-	function setTransitionedTimeout() {
-		if (loaded && !transitioned) {
-			setTimeout(() => {
-				transitioned = true;
-			}, 600);
-		}
-	}
 </script>
 
-<div class="w-full h-full">
-	<img
-		class="w-full h-full select-none origin-bottom transform filter transition {transitioned
-			? 'duration-300 blur-none opacity-0'
-			: 'duration-500 blur-md'} {$isTouchscreen
-			? 'group-active:scale-102'
-			: 'group-hover:scale-102'}"
-		src={srcPlaceholder}
-		{width}
-		{height}
-		{alt}
-	/>
+<div
+	style="background-image: url({srcPlaceholder}); background-repeat: no-repeat; background-size: cover;"
+	class="w-full h-full filter duration-600 {loaded ? 'blur-none' : 'blur-md'}"
+>
 	<img
 		bind:this={image}
-		class="w-full h-full select-none origin-bottom transform absolute left-0 top-0 filter transition {transitioned
-			? 'duration-300'
-			: 'duration-500'} {$isTouchscreen
+		class="w-full h-full select-none origin-bottom transform filter transition duration-300 {$isTouchscreen
 			? 'group-active:scale-102'
-			: 'group-hover:scale-102'} {loaded ? 'opacity-100 blur-none' : 'opacity-0 blur-md'}"
+			: 'group-hover:scale-102'} {loaded ? 'opacity-100' : 'opacity-0'}"
 		src={srcFromUrl(src)}
 		srcset={srcsetFromUrl(src)}
 		on:load={setLoaded}

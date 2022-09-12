@@ -39,5 +39,4 @@ export interface TUser {
 
 export interface TCollectionEntryObject extends TDBCollectionEntry {
 	isLoadedBefore: boolean;
-	shouldTransitionFaster: boolean;
 }
