@@ -30,15 +30,17 @@
 <div class="w-full h-full overflow-hidden">
 	<div
 		style="background-image: url({srcPlaceholder}); background-repeat: no-repeat; background-size: cover;"
-		class="w-full h-full transform filter duration-600 {loaded
+		class="w-full h-full transform transition filter duration-600 {loaded
 			? 'blur-none scale-100'
 			: 'blur-md scale-105'}"
 	>
 		<img
 			bind:this={image}
-			class="w-full h-full select-none origin-bottom transform filter transition duration-300 {!$isTouchscreen
-				? 'group-hover:scale-102'
-				: ''} {loaded ? 'opacity-100' : 'opacity-0'}"
+			class="w-full h-full select-none origin-bottom transform filter transition duration-300 {loaded
+				? !$isTouchscreen
+					? 'group-hover:scale-102 opacity-100'
+					: 'opacity-100'
+				: 'opacity-0'}"
 			src={srcFromUrl(src)}
 			srcset={srcsetFromUrl(src)}
 			on:load={setLoaded}

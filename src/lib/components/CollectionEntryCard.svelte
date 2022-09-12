@@ -8,6 +8,8 @@
 
 	export let entry: TCollectionEntryObject;
 	export let collection: TDBCollectionShallow;
+	export { classes as class };
+	let classes = '';
 
 	function setActiveEntry(entry: TDBCollectionEntry) {
 		activeEntry.set(entry);
@@ -37,7 +39,7 @@
 <button
 	on:mouseenter={() => loadImage(entry.imageUrl)}
 	on:click={onClick}
-	class="w-full h-full group"
+	class="w-full h-full group {classes}"
 >
 	<div
 		in:receive|local={{ key: entry.id }}

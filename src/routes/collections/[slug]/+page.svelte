@@ -112,9 +112,10 @@
 	<!-- Entries -->
 	<div class="w-full flex flex-wrap justify-center z-0 relative">
 		{#each entryObjects.sort((a, b) => a.order - b.order) as entry, index (entry.id)}
-			<div class="w-full md:w-1/2 lg:w-1/3 xl:w-1/4">
+			<div class="w-full md:w-1/2 lg:w-1/3 xl:w-1/4 relative">
+				<svg class="w-full h-auto" width={entry.imageWidth} height={entry.imageHeight} />
 				{#if $activeEntry?.id !== entry.id}
-					<EntryCard bind:entry collection={collectionShallow} />
+					<EntryCard bind:entry collection={collectionShallow} class="absolute left-0 top-0" />
 				{/if}
 			</div>
 		{/each}
