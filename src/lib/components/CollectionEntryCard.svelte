@@ -37,12 +37,12 @@
 <button
 	on:mouseenter={() => loadImage(entry.imageUrl)}
 	on:click={onClick}
-	class="w-full h-full overflow-hidden group absolute left-0 top-0"
+	class="w-full h-full group"
 >
 	<div
 		in:receive|local={{ key: entry.id }}
 		out:send|local={{ key: entry.id }}
-		class="w-full h-full bg-c-bg-secondary relative"
+		class="w-full h-full"
 	>
 		<ImageP
 			bind:loaded={entry.isLoadedBefore}

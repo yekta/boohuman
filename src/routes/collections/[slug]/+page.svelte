@@ -114,7 +114,7 @@
 		{#each entryObjects.sort((a, b) => a.order - b.order) as entry, index (entry.id)}
 			<div
 				style="aspect-ratio: {entry.imageWidth / entry.imageHeight};"
-				class="w-full md:w-1/2 lg:w-1/3 xl:w-1/4 bg-c-bg relative flex flex-col"
+				class="w-full md:w-1/2 lg:w-1/3 xl:w-1/4"
 			>
 				{#if $activeEntry?.id !== entry.id}
 					<EntryCard bind:entry collection={collectionShallow} />

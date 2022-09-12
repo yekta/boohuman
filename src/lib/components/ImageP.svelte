@@ -21,21 +21,23 @@
 	}
 </script>
 
-<div
-	style="background-image: url({srcPlaceholder}); background-repeat: no-repeat; background-size: cover;"
-	class="w-full h-full filter duration-600 {loaded ? 'blur-none' : 'blur-md'}"
->
-	<img
-		bind:this={image}
-		class="w-full h-full select-none origin-bottom transform filter transition duration-300 {!$isTouchscreen
-			? 'group-hover:scale-102'
-			: ''} {loaded ? 'opacity-100' : 'opacity-0'}"
-		src={srcFromUrl(src)}
-		srcset={srcsetFromUrl(src)}
-		on:load={setLoaded}
-		{sizes}
-		{width}
-		{height}
-		{alt}
-	/>
+<div class="w-full h-full overflow-hidden">
+	<div
+		style="background-image: url({srcPlaceholder}); background-repeat: no-repeat; background-size: cover;"
+		class="w-full h-full filter duration-600 {loaded ? 'blur-none' : 'blur-md'}"
+	>
+		<img
+			bind:this={image}
+			class="w-full h-full select-none origin-bottom transform filter transition duration-300 {!$isTouchscreen
+				? 'group-hover:scale-102'
+				: ''} {loaded ? 'opacity-100' : 'opacity-0'}"
+			src={srcFromUrl(src)}
+			srcset={srcsetFromUrl(src)}
+			on:load={setLoaded}
+			{sizes}
+			{width}
+			{height}
+			{alt}
+		/>
+	</div>
 </div>
