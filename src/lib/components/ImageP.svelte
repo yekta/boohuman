@@ -14,7 +14,7 @@
 	let image: HTMLImageElement | undefined;
 
 	$: [image], setLoaded();
-	$: [loaded, !transitioned], setTransitionedTimeout();
+	$: [loaded, transitioned], setTransitionedTimeout();
 
 	function setLoaded() {
 		if (!loaded && image !== undefined && (image?.naturalWidth > 0 || image?.naturalHeight > 0)) {
