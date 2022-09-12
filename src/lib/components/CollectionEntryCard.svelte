@@ -48,11 +48,11 @@
 			bind:loaded={entry.isLoadedBefore}
 			bind:transitioned={entry.shouldTransitionFaster}
 			src={entry.imageUrl}
+			srcPlaceholder={entry.imagePlaceholderBase64}
+			{sizes}
 			width={entry.imageWidth}
 			height={entry.imageHeight}
 			alt={entry.name}
-			{sizes}
-			srcPlaceholder={entry.imagePlaceholderBase64}
 		/>
 	</div>
 </button>
