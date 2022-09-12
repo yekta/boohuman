@@ -24,7 +24,9 @@
 <div class="w-full h-full overflow-hidden">
 	<div
 		style="background-image: url({srcPlaceholder}); background-repeat: no-repeat; background-size: cover;"
-		class="w-full h-full filter duration-600 {loaded ? 'blur-none' : 'blur-md'}"
+		class="w-full h-full transform filter duration-600 {loaded
+			? 'blur-none scale-100'
+			: 'blur-md scale-105'}"
 	>
 		<img
 			bind:this={image}
