@@ -9,7 +9,7 @@
 	export let width: number;
 	export let height: number;
 	export let loaded: boolean = false;
-	export let hoverClasses = '';
+	export let hoverClasses: string | undefined = undefined;
 
 	let image: HTMLImageElement | undefined;
 
@@ -39,7 +39,7 @@
 			bind:this={image}
 			class="w-full h-full select-none origin-bottom transform filter transition duration-300 {loaded
 				? 'opacity-100'
-				: 'opacity-0'} {loaded && !$isTouchscreen ? hoverClasses : ''}"
+				: 'opacity-0'} {hoverClasses && loaded && !$isTouchscreen ? hoverClasses : ''}"
 			src={srcFromUrl(src)}
 			srcset={srcsetFromUrl(src)}
 			on:load={setLoaded}
