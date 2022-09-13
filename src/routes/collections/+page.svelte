@@ -21,7 +21,7 @@
 
 <PageWrapper>
 	<div class="w-full flex justify-center flex-1">
-		<div class="w-full max-w-7xl flex-1 flex flex-col items-center justify-center px-5 pt-12 pb-16">
+		<div class="w-full flex-1 flex flex-col items-center justify-center px-5 pt-12 pb-16">
 			<h1 class="text-4xl md:text-5xl leading-tight md:leading-tight font-bold text-center">
 				collections
 			</h1>

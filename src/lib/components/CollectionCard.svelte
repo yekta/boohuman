@@ -9,13 +9,13 @@
 
 	let classes = '';
 
-	const sizes = '(min-width: 1024px) 342px, (min-width: 768px) 50vw, 100vw';
+	const sizes = '(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw';
 </script>
 
 <a
 	data-sveltekit-prefetch
 	href="/collections/{collection.slug}"
-	class="w-full max-w-lg md:w-1/2 lg:w-1/3 p-2.5 group {classes}"
+	class="w-full max-w-lg md:max-w-full md:w-1/2 lg:w-1/3 p-2.5 group {classes}"
 >
 	<div class="w-full relative">
 		<div
