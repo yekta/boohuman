@@ -54,6 +54,7 @@
 			width={entry.imageWidth}
 			height={entry.imageHeight}
 			alt={entry.name}
+			hoverClasses="group-hover:scale-102"
 		/>
 	</div>
 </button>

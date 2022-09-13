@@ -5,6 +5,7 @@ export interface TDBCollectionShallow {
 	imageUrl: string;
 	imageWidth: number;
 	imageHeight: number;
+	imagePlaceholderBase64: string;
 	previewImageUrl: string;
 	previewImageWidth: number;
 	previewImageHeight: number;

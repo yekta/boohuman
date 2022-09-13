@@ -15,6 +15,7 @@ CREATE TABLE "art_collection" (
     "image_url" TEXT NOT NULL,
     "image_width" INTEGER NOT NULL,
     "image_height" INTEGER NOT NULL,
+    "image_placeholder_base64" TEXT NOT NULL,
     "preview_image_url" TEXT NOT NULL,
     "preview_image_width" INTEGER NOT NULL,
     "preview_image_height" INTEGER NOT NULL,

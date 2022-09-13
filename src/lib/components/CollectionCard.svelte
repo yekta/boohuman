@@ -1,5 +1,6 @@
 <script lang="ts">
 	import BgHoverEffect from '$components/BgHoverEffect.svelte';
+	import ImageP from '$components/ImageP.svelte';
 	import { srcFromUrl, srcsetFromUrl } from '$ts/constants/imgproxy';
 	import { isTouchscreen } from '$ts/stores/isTouchscreen';
 	import type { TDBCollectionShallow } from '$ts/types/db';
@@ -43,13 +44,12 @@
 						</p>
 					</div>
 					<div class="w-full bg-c-bg-secondary">
-						<img
-							class="w-full h-auto relative"
-							src={srcFromUrl(collection.imageUrl)}
-							srcset={srcsetFromUrl(collection.imageUrl)}
-							{sizes}
+						<ImageP
+							src={collection.imageUrl}
 							width={collection.imageWidth}
 							height={collection.imageHeight}
+							srcPlaceholder={collection.imagePlaceholderBase64}
+							{sizes}
 							alt={collection.name}
 						/>
 					</div>

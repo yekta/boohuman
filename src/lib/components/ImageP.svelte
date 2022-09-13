@@ -9,6 +9,7 @@
 	export let width: number;
 	export let height: number;
 	export let loaded: boolean = false;
+	export let hoverClasses = '';
 
 	let image: HTMLImageElement | undefined;
 
@@ -30,7 +31,7 @@
 <div class="w-full h-full overflow-hidden">
 	<div
 		style="background-image: url({srcPlaceholder}); background-repeat: no-repeat; background-size: cover;"
-		class="w-full h-full transform transition filter duration-600 {loaded
+		class="w-full h-full transform transition filter duration-500 {loaded
 			? 'blur-none scale-100'
 			: 'blur-md scale-105'}"
 	>
@@ -38,7 +39,7 @@
 			bind:this={image}
 			class="w-full h-full select-none origin-bottom transform filter transition duration-300 {loaded
 				? 'opacity-100'
-				: 'opacity-0'} {loaded && !$isTouchscreen ? 'group-hover:scale-102' : ''}"
+				: 'opacity-0'} {loaded && !$isTouchscreen ? hoverClasses : ''}"
 			src={srcFromUrl(src)}
 			srcset={srcsetFromUrl(src)}
 			on:load={setLoaded}

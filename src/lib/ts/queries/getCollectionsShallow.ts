@@ -12,6 +12,7 @@ export async function getCollectionsShallow() {
         imageUrl:image_url,
         imageWidth:image_width,
         imageHeight:image_height,
+        imagePlaceholderBase64:image_placeholder_base64,
         gpuTimeHours:gpu_time_hours,
         totalGenerations:total_generations,
         aiOption:ai_option (
