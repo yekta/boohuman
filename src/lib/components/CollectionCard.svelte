@@ -9,7 +9,7 @@
 
 	let classes = '';
 
-	const sizes = '(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw';
+	const sizes = '(min-width: 1024px) 342px, (min-width: 768px) 50vw, 100vw';
 </script>
 
 <a
