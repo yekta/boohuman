@@ -1,7 +1,6 @@
 <script lang="ts">
 	import BgHoverEffect from '$components/BgHoverEffect.svelte';
 	import ImageP from '$components/ImageP.svelte';
-	import { srcFromUrl, srcsetFromUrl } from '$ts/constants/imgproxy';
 	import { isTouchscreen } from '$ts/stores/isTouchscreen';
 	import type { TDBCollectionShallow } from '$ts/types/db';
 
@@ -16,7 +15,7 @@
 <a
 	data-sveltekit-prefetch
 	href="/collections/{collection.slug}"
-	class="w-full md:w-1/2 lg:w-1/3 p-2.5 group {classes}"
+	class="w-full max-w-lg md:w-1/2 lg:w-1/3 p-2.5 group {classes}"
 >
 	<div class="w-full relative">
 		<div

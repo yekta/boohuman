@@ -20,16 +20,18 @@
 />
 
 <PageWrapper>
-	<div class="flex-1 flex flex-col items-center justify-center px-5 pt-12 pb-16">
-		<h1 class="text-4xl md:text-5xl leading-tight md:leading-tight font-bold text-center">
-			collections
-		</h1>
-		<div
-			class="w-full flex flex-row flex-wrap justify-center items-start mt-5 px-2.5 md:px-8 lg:px-12"
-		>
-			{#each collections as collection}
-				<CollectionCard {collection} class="md:w-1/2 lg:w-1/3 p-2.5" />
-			{/each}
+	<div class="w-full flex justify-center flex-1">
+		<div class="w-full max-w-7xl flex-1 flex flex-col items-center justify-center px-5 pt-12 pb-16">
+			<h1 class="text-4xl md:text-5xl leading-tight md:leading-tight font-bold text-center">
+				collections
+			</h1>
+			<div
+				class="w-full flex flex-row flex-wrap justify-center items-start mt-5 px-2.5 md:px-8 lg:px-12"
+			>
+				{#each collections as collection}
+					<CollectionCard {collection} class="md:w-1/2 lg:w-1/3 p-2.5" />
+				{/each}
+			</div>
 		</div>
 	</div>
 </PageWrapper>

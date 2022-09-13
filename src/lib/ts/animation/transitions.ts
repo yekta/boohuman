@@ -28,9 +28,14 @@ interface IExpandCollapseOptions {
 	opacity?: number;
 }
 
-export const expandCollapse = (node: Node, options: IExpandCollapseOptions) => {
-	let { delay = 0, duration, easing = quadOut, y, durationMultiplier = 1, opacity } = options;
-	let height = Number(getComputedStyle(node as HTMLElement).height.split('px')[0]);
+export const expandCollapse = (node: Node, options?: IExpandCollapseOptions) => {
+	const delay = options?.delay || 0;
+	const duration = options?.duration;
+	const easing = options?.easing || quadOut;
+	const y = options?.y;
+	const durationMultiplier = options?.durationMultiplier || 1;
+	const opacity = options?.opacity;
+	const height = Number(getComputedStyle(node as HTMLElement).height.split('px')[0]);
 	const durationCalculated = Math.min(Math.round(height / 2 + 175), 300);
 	return {
 		delay,
