@@ -31,13 +31,13 @@
 <div class="w-full h-full overflow-hidden">
 	<div
 		style="background-image: url({srcPlaceholder}); background-repeat: no-repeat; background-size: cover;"
-		class="w-full h-full transform transition ease-out filter duration-500 {loaded
+		class="w-full h-full transform transition ease-out filter duration-400 {loaded
 			? 'blur-none scale-100'
 			: 'blur-md scale-105'}"
 	>
 		<img
 			bind:this={image}
-			style="transition: opacity 0.5s ease-out, transform 0.3s cubic-bezier(0, 0.5, 0.5, 1);"
+			style="transition: opacity 0.4s ease-out, transform 0.3s cubic-bezier(0, 0.5, 0.5, 1);"
 			class="w-full h-full select-none origin-bottom transform filter transition {loaded
 				? 'opacity-100'
 				: 'opacity-0'} {loaded && !$isTouchscreen ? hoverClasses : ''}"
