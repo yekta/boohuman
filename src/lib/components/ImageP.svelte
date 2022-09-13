@@ -37,10 +37,8 @@
 		<img
 			bind:this={image}
 			class="w-full h-full select-none origin-bottom transform filter transition duration-300 {loaded
-				? !$isTouchscreen
-					? 'group-hover:scale-102 opacity-100'
-					: 'opacity-100'
-				: 'opacity-0'}"
+				? 'opacity-100'
+				: 'opacity-0'} {loaded && !$isTouchscreen ? 'group-hover:scale-102' : ''}"
 			src={srcFromUrl(src)}
 			srcset={srcsetFromUrl(src)}
 			on:load={setLoaded}
