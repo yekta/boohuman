@@ -43,7 +43,7 @@
 <MetaTag
 	title="{collection.name.toLowerCase()} | collections"
 	description={collection.description.toLowerCase()}
-	imageUrl={srcFromUrl(collection.previewImageUrl)}
+	imageUrl={collection.previewImageUrl}
 	imageWidth={collection.previewImageWidth}
 	imageHeight={collection.previewImageHeight}
 	canonical="{canonicalUrl}/collections/{collection.slug}"
