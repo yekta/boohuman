@@ -2,7 +2,7 @@
 	import { activeEntry } from '$ts/stores/activeEntry';
 	import { receive, send } from '$ts/animation/transitions';
 	import type { TDBCollectionEntry, TDBCollectionShallow } from '$ts/types/db';
-	import { srcFromUrl } from '$ts/constants/imgproxy';
+	import { srcFromUrl } from '$ts/helpers/imgproxy';
 	import type { TCollectionEntryObject } from '$ts/types/main';
 	import ImageP from '$components/ImageP.svelte';
 

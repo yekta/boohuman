@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { srcFromUrl, srcsetFromUrl } from '$ts/constants/imgproxy';
+	import { srcFromUrl, srcsetFromUrl } from '$ts/helpers/imgproxy';
 	import { isTouchscreen } from '$ts/stores/isTouchscreen';
 
 	export let src: string;

@@ -3,7 +3,7 @@
 	import IconChevronDown from '$components/icons/IconChevronDown.svelte';
 	import { clickoutside } from '$ts/actions/clickoutside';
 	import { expandCollapse, receive, send } from '$ts/animation/transitions';
-	import { srcFromUrl, srcsetFromUrl } from '$ts/constants/imgproxy';
+	import { srcFromUrl, srcsetFromUrl } from '$ts/helpers/imgproxy';
 	import { containImage } from '$ts/helpers/containImage';
 	import { isTouchscreen } from '$ts/stores/isTouchscreen';
 	import type { TDBCollectionEntry } from '$ts/types/db';
