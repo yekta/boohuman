@@ -1,10 +1,10 @@
 <script lang="ts">
 	export { classes as class };
-	let classes = 'w-1/3 md:w-40';
+	let classes = 'max-w-[30%] w-40';
 </script>
 
 <div
-	class="max-w-full aspect-square flex flex-col relative origin-bottom move-animation overflow-hidden {classes}"
+	class="aspect-square flex flex-col relative origin-bottom move-animation overflow-hidden {classes}"
 >
 	<div class="w-full h-full p-gradient-135 absolute" />
 	<div class="w-full flex mt-[40.625%] h-[28.125%] justify-center relative">
