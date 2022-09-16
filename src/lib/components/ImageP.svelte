@@ -31,7 +31,7 @@
 <div class="w-full h-full overflow-hidden">
 	<div
 		style="background-image: url({srcPlaceholder}); background-repeat: no-repeat; background-size: cover;"
-		class="w-full h-full transform filter transition duration-300 {loaded
+		class="w-full h-full transform filter transition ease-in-out duration-500 {loaded
 			? 'blur-none scale-100'
 			: 'blur-md scale-105'}"
 	>
