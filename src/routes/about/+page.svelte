@@ -14,14 +14,14 @@
 />
 
 <PageWrapper>
-	<div class="flex-1 flex flex-col items-center justify-center px-5 pt-12 pb-16">
-		<MarkAnimated />
+	<div class="flex-1 flex flex-col items-center justify-center px-5 pt-16 pb-16">
+		<MarkAnimated class="w-1/3 md:w-40" />
 		<h1 class="text-4xl md:text-5xl leading-tight md:leading-tight font-bold text-center mt-10">
 			ai is coming for you.
 		</h1>
 		<h2
 			style="text-fill-color: transparent; -webkit-text-fill-color: transparent;"
-			class="bg-clip-text p-gradient-135 text-center text-8xl md:text-10xl font-bold leading-none md:leading-none mt-4"
+			class="bg-clip-text p-gradient-135 text-center text-8xl md:text-10xl font-bold leading-none md:leading-none mt-3"
 		>
 			boo!
 		</h2>
