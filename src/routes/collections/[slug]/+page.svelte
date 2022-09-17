@@ -5,7 +5,6 @@
 	import FullScreenCollectionEntry from '$components/FullScreenCollectionEntry.svelte';
 	import MetaTag from '$components/MetaTag.svelte';
 	import PageWrapper from '$components/PageWrapper.svelte';
-	import { srcFromUrl } from '$ts/helpers/imgproxy';
 	import { canonicalUrl } from '$ts/constants/seo';
 	import { activeEntry } from '$ts/stores/activeEntry';
 	import { isTouchscreen } from '$ts/stores/isTouchscreen';
