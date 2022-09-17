@@ -38,6 +38,12 @@
 
 	let innerHeight: number | undefined;
 	let innerWidth: number | undefined;
+
+	let onKeyPress = (e: KeyboardEvent) => {
+		if ($activeEntry !== undefined && e.key === 'Escape') {
+			closeModal();
+		}
+	};
 </script>
 
 <MetaTag
@@ -49,13 +55,7 @@
 	canonical="{canonicalUrl}/collections/{collection.slug}"
 />
 
-<svelte:window
-	bind:innerHeight
-	bind:innerWidth
-	on:keyup={(e) => {
-		if ($activeEntry !== undefined && e.key === 'Escape') closeModal();
-	}}
-/>
+<svelte:window bind:innerHeight bind:innerWidth on:keypress={onKeyPress} />
 
 <PageWrapper>
 	<div class="w-full flex flex-col md:flex-row items-center justify-center px-5 py-12">
